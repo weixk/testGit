@@ -1,7 +1,6 @@
 ./
 ├── wrapper.gradle
 ├── Vagrantfile
-├── vagrant
 │   ├── zk.sh
 │   ├── vagrant-up.sh
 │   ├── system-test-Vagrantfile.local
