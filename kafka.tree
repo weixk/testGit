@@ -1,0 +1,2580 @@
+./
+├── wrapper.gradle
+├── Vagrantfile
+├── vagrant
+│   ├── zk.sh
+│   ├── vagrant-up.sh
+│   ├── system-test-Vagrantfile.local
+│   ├── README.md
+│   ├── package-base-box.sh
+│   ├── broker.sh
+│   ├── base.sh
+│   └── aws
+│       ├── aws-init.sh
+│       ├── aws-example-Vagrantfile.local
+│       └── aws-access-keys-commands
+├── trees
+├── tools
+│   └── src
+│       └── main
+│           └── java
+│               └── org
+│                   └── apache
+│                       └── kafka
+│                           └── tools
+│                               ├── VerifiableProducer.java
+│                               ├── VerifiableLog4jAppender.java
+│                               ├── VerifiableConsumer.java
+│                               ├── TransactionalMessageCopier.java
+│                               ├── ToolsUtils.java
+│                               ├── ThroughputThrottler.java
+│                               ├── ProducerPerformance.java
+│                               └── ClientCompatibilityTest.java
+├── tests
+│   ├── unit
+│   │   ├── version
+│   │   │   ├── __init__.py
+│   │   │   └── check_version.py
+│   │   ├── setup.cfg
+│   │   ├── __init__.py
+│   │   └── directory_layout
+│   │       ├── __init__.py
+│   │       └── check_project_paths.py
+│   ├── setup.py
+│   ├── setup.cfg
+│   ├── README.md
+│   ├── MANIFEST.in
+│   ├── kafkatest
+│   │   ├── version.py
+│   │   ├── utils
+│   │   │   ├── util.py
+│   │   │   ├── remote_account.py
+│   │   │   └── __init__.py
+│   │   ├── tests
+│   │   │   ├── verifiable_consumer_test.py
+│   │   │   ├── tools
+│   │   │   │   ├── replica_verification_test.py
+│   │   │   │   ├── log4j_appender_test.py
+│   │   │   │   └── __init__.py
+│   │   │   ├── streams
+│   │   │   │   ├── streams_upgrade_test.py
+│   │   │   │   ├── streams_smoke_test.py
+│   │   │   │   ├── streams_shutdown_deadlock_test.py
+│   │   │   │   ├── streams_eos_test.py
+│   │   │   │   ├── streams_broker_compatibility_test.py
+│   │   │   │   ├── streams_broker_bounce_test.py
+│   │   │   │   ├── streams_bounce_test.py
+│   │   │   │   └── __init__.py
+│   │   │   ├── produce_consume_validate.py
+│   │   │   ├── kafka_test.py
+│   │   │   ├── __init__.py
+│   │   │   ├── core
+│   │   │   │   ├── zookeeper_security_upgrade_test.py
+│   │   │   │   ├── upgrade_test.py
+│   │   │   │   ├── transactions_test.py
+│   │   │   │   ├── throttling_test.py
+│   │   │   │   ├── simple_consumer_shell_test.py
+│   │   │   │   ├── security_test.py
+│   │   │   │   ├── security_rolling_upgrade_test.py
+│   │   │   │   ├── replication_test.py
+│   │   │   │   ├── reassign_partitions_test.py
+│   │   │   │   ├── mirror_maker_test.py
+│   │   │   │   ├── log_dir_failure_test.py
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── get_offset_shell_test.py
+│   │   │   │   ├── consumer_group_command_test.py
+│   │   │   │   └── compatibility_test_new_broker_test.py
+│   │   │   ├── connect
+│   │   │   │   ├── templates
+│   │   │   │   │   ├── connect-standalone.properties
+│   │   │   │   │   ├── connect-file-source.properties
+│   │   │   │   │   ├── connect-file-sink.properties
+│   │   │   │   │   └── connect-distributed.properties
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── connect_test.py
+│   │   │   │   ├── connect_rest_test.py
+│   │   │   │   └── connect_distributed_test.py
+│   │   │   └── client
+│   │   │       ├── quota_test.py
+│   │   │       ├── pluggable_test.py
+│   │   │       ├── message_format_change_test.py
+│   │   │       ├── __init__.py
+│   │   │       ├── consumer_test.py
+│   │   │       ├── consumer_rolling_upgrade_test.py
+│   │   │       ├── compression_test.py
+│   │   │       ├── client_compatibility_produce_consume_test.py
+│   │   │       └── client_compatibility_features_test.py
+│   │   ├── services
+│   │   │   ├── zookeeper.py
+│   │   │   ├── verifiable_producer.py
+│   │   │   ├── verifiable_consumer.py
+│   │   │   ├── verifiable_client.py
+│   │   │   ├── transactional_message_copier.py
+│   │   │   ├── templates
+│   │   │   │   ├── zookeeper.properties
+│   │   │   │   ├── tools_log4j.properties
+│   │   │   │   ├── producer.properties
+│   │   │   │   ├── mirror_maker_producer.properties
+│   │   │   │   ├── mirror_maker_consumer.properties
+│   │   │   │   ├── consumer.properties
+│   │   │   │   ├── console_consumer.properties
+│   │   │   │   └── connect_log4j.properties
+│   │   │   ├── streams.py
+│   │   │   ├── simple_consumer_shell.py
+│   │   │   ├── security
+│   │   │   │   ├── templates
+│   │   │   │   │   ├── minikdc.properties
+│   │   │   │   │   └── jaas.conf
+│   │   │   │   ├── security_config.py
+│   │   │   │   ├── minikdc.py
+│   │   │   │   ├── kafka_acls.py
+│   │   │   │   └── __init__.py
+│   │   │   ├── replica_verification_tool.py
+│   │   │   ├── performance
+│   │   │   │   ├── templates
+│   │   │   │   │   └── tools_log4j.properties
+│   │   │   │   ├── streams_performance.py
+│   │   │   │   ├── producer_performance.py
+│   │   │   │   ├── performance.py
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── end_to_end_latency.py
+│   │   │   │   └── consumer_performance.py
+│   │   │   ├── monitor
+│   │   │   │   ├── jmx.py
+│   │   │   │   └── __init__.py
+│   │   │   ├── mirror_maker.py
+│   │   │   ├── kafka_log4j_appender.py
+│   │   │   ├── kafka
+│   │   │   │   ├── util.py
+│   │   │   │   ├── templates
+│   │   │   │   │   ├── log4j.properties
+│   │   │   │   │   └── kafka.properties
+│   │   │   │   ├── kafka.py
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── config.py
+│   │   │   │   └── config_property.py
+│   │   │   ├── __init__.py
+│   │   │   ├── console_consumer.py
+│   │   │   └── connect.py
+│   │   ├── sanity_checks
+│   │   │   ├── test_verifiable_producer.py
+│   │   │   ├── test_performance_services.py
+│   │   │   ├── test_kafka_version.py
+│   │   │   ├── test_console_consumer.py
+│   │   │   └── __init__.py
+│   │   ├── __init__.py
+│   │   ├── directory_layout
+│   │   │   ├── kafka_path.py
+│   │   │   └── __init__.py
+│   │   └── benchmarks
+│   │       ├── streams
+│   │       │   ├── streams_simple_benchmark_test.py
+│   │       │   └── __init__.py
+│   │       ├── __init__.py
+│   │       └── core
+│   │           ├── __init__.py
+│   │           └── benchmark_test.py
+│   ├── docker
+│   │   ├── ssh-config
+│   │   ├── ssh
+│   │   │   ├── id_rsa.pub
+│   │   │   ├── id_rsa
+│   │   │   ├── config
+│   │   │   └── authorized_keys
+│   │   ├── run_tests.sh
+│   │   ├── ducker-ak
+│   │   └── Dockerfile
+│   └── bootstrap-test-env.sh
+├── streams
+│   ├── src
+│   │   ├── test
+│   │   │   ├── resources
+│   │   │   │   └── log4j.properties
+│   │   │   └── java
+│   │   │       └── org
+│   │   │           └── apache
+│   │   │               └── kafka
+│   │   │                   ├── test
+│   │   │                   │   ├── StreamsTestUtils.java
+│   │   │                   │   ├── StateStoreProviderStub.java
+│   │   │                   │   ├── SegmentedBytesStoreStub.java
+│   │   │                   │   ├── ReadOnlySessionStoreStub.java
+│   │   │                   │   ├── ProcessorTopologyTestDriver.java
+│   │   │                   │   ├── NoOpRecordCollector.java
+│   │   │                   │   ├── NoOpReadOnlyStore.java
+│   │   │                   │   ├── NoOpProcessorContext.java
+│   │   │                   │   ├── MockValueJoiner.java
+│   │   │                   │   ├── MockTimestampExtractor.java
+│   │   │                   │   ├── MockStateStoreSupplier.java
+│   │   │                   │   ├── MockSourceNode.java
+│   │   │                   │   ├── MockRestoreConsumer.java
+│   │   │                   │   ├── MockRestoreCallback.java
+│   │   │                   │   ├── MockReducer.java
+│   │   │                   │   ├── MockProcessorSupplier.java
+│   │   │                   │   ├── MockProcessorNode.java
+│   │   │                   │   ├── MockProcessorContext.java
+│   │   │                   │   ├── MockKeyValueMapper.java
+│   │   │                   │   ├── MockInternalTopicManager.java
+│   │   │                   │   ├── MockInitializer.java
+│   │   │                   │   ├── MockClientSupplier.java
+│   │   │                   │   ├── MockChangelogReader.java
+│   │   │                   │   ├── MockAggregator.java
+│   │   │                   │   ├── KTableValueGetterStub.java
+│   │   │                   │   ├── KStreamTestDriver.java
+│   │   │                   │   ├── KeyValueIteratorStub.java
+│   │   │                   │   └── GlobalStateManagerStub.java
+│   │   │                   └── streams
+│   │   │                       ├── tests
+│   │   │                       │   ├── StreamsSmokeTest.java
+│   │   │                       │   ├── StreamsEosTest.java
+│   │   │                       │   ├── SmokeTestUtil.java
+│   │   │                       │   ├── SmokeTestDriver.java
+│   │   │                       │   ├── SmokeTestClient.java
+│   │   │                       │   ├── ShutdownDeadlockTest.java
+│   │   │                       │   ├── EosTestDriver.java
+│   │   │                       │   ├── EosTestClient.java
+│   │   │                       │   └── BrokerCompatibilityTest.java
+│   │   │                       ├── StreamsConfigTest.java
+│   │   │                       ├── state
+│   │   │                       │   ├── StoresTest.java
+│   │   │                       │   ├── NoOpWindowStore.java
+│   │   │                       │   ├── KeyValueStoreTestDriver.java
+│   │   │                       │   └── internals
+│   │   │                       │       ├── WrappingStoreProviderTest.java
+│   │   │                       │       ├── WindowStoreUtilsTest.java
+│   │   │                       │       ├── WindowKeySchemaTest.java
+│   │   │                       │       ├── ThreadCacheTest.java
+│   │   │                       │       ├── StreamThreadStateStoreProviderTest.java
+│   │   │                       │       ├── StoreChangeLoggerTest.java
+│   │   │                       │       ├── StateStoreTestUtils.java
+│   │   │                       │       ├── SessionKeySchemaTest.java
+│   │   │                       │       ├── SerializedKeyValueIteratorTest.java
+│   │   │                       │       ├── SegmentsTest.java
+│   │   │                       │       ├── SegmentIteratorTest.java
+│   │   │                       │       ├── SegmentedCacheFunctionTest.java
+│   │   │                       │       ├── RocksDBWindowStoreTest.java
+│   │   │                       │       ├── RocksDBWindowStoreSupplierTest.java
+│   │   │                       │       ├── RocksDBStoreTest.java
+│   │   │                       │       ├── RocksDBSessionStoreTest.java
+│   │   │                       │       ├── RocksDBSessionStoreSupplierTest.java
+│   │   │                       │       ├── RocksDBSegmentedBytesStoreTest.java
+│   │   │                       │       ├── RocksDBKeyValueStoreTest.java
+│   │   │                       │       ├── RocksDBKeyValueStoreSupplierTest.java
+│   │   │                       │       ├── ReadOnlyWindowStoreStub.java
+│   │   │                       │       ├── QueryableStoreProviderTest.java
+│   │   │                       │       ├── OffsetCheckpointTest.java
+│   │   │                       │       ├── NamedCacheTest.java
+│   │   │                       │       ├── MeteredSegmentedBytesStoreTest.java
+│   │   │                       │       ├── MergedSortedCacheWrappedWindowStoreKeyValueIteratorTest.java
+│   │   │                       │       ├── MergedSortedCacheWrappedWindowStoreIteratorTest.java
+│   │   │                       │       ├── MergedSortedCacheWrappedSessionStoreIteratorTest.java
+│   │   │                       │       ├── MergedSortedCacheKeyValueStoreIteratorTest.java
+│   │   │                       │       ├── InMemoryLRUCacheStoreTest.java
+│   │   │                       │       ├── InMemoryKeyValueStoreTest.java
+│   │   │                       │       ├── InMemoryKeyValueLoggedStoreTest.java
+│   │   │                       │       ├── GlobalStateStoreProviderTest.java
+│   │   │                       │       ├── FilteredCacheIteratorTest.java
+│   │   │                       │       ├── DelegatingPeekingKeyValueIteratorTest.java
+│   │   │                       │       ├── CompositeReadOnlyWindowStoreTest.java
+│   │   │                       │       ├── CompositeReadOnlySessionStoreTest.java
+│   │   │                       │       ├── CompositeReadOnlyKeyValueStoreTest.java
+│   │   │                       │       ├── ChangeLoggingSegmentedBytesStoreTest.java
+│   │   │                       │       ├── ChangeLoggingKeyValueStoreTest.java
+│   │   │                       │       ├── ChangeLoggingKeyValueBytesStoreTest.java
+│   │   │                       │       ├── CachingWindowStoreTest.java
+│   │   │                       │       ├── CachingSessionStoreTest.java
+│   │   │                       │       ├── CachingKeyValueStoreTest.java
+│   │   │                       │       └── AbstractKeyValueStoreTest.java
+│   │   │                       ├── processor
+│   │   │                       │   ├── WallclockTimestampExtractorTest.java
+│   │   │                       │   ├── UsePreviousTimeOnInvalidTimestampTest.java
+│   │   │                       │   ├── TopologyTest.java
+│   │   │                       │   ├── TopologyBuilderTest.java
+│   │   │                       │   ├── TimestampExtractorTest.java
+│   │   │                       │   ├── LogAndSkipOnInvalidTimestampTest.java
+│   │   │                       │   ├── internals
+│   │   │                       │   │   ├── StreamThreadTest.java
+│   │   │                       │   │   ├── StreamTaskTest.java
+│   │   │                       │   │   ├── StreamsMetricsImplTest.java
+│   │   │                       │   │   ├── StreamsMetadataStateTest.java
+│   │   │                       │   │   ├── StreamsKafkaClientTest.java
+│   │   │                       │   │   ├── StreamPartitionAssignorTest.java
+│   │   │                       │   │   ├── StoreChangelogReaderTest.java
+│   │   │                       │   │   ├── StateRestorerTest.java
+│   │   │                       │   │   ├── StateManagerStub.java
+│   │   │                       │   │   ├── StateDirectoryTest.java
+│   │   │                       │   │   ├── StateConsumerTest.java
+│   │   │                       │   │   ├── StandbyTaskTest.java
+│   │   │                       │   │   ├── SourceNodeTest.java
+│   │   │                       │   │   ├── SourceNodeRecordDeserializerTest.java
+│   │   │                       │   │   ├── SinkNodeTest.java
+│   │   │                       │   │   ├── SingleGroupPartitionGrouperStub.java
+│   │   │                       │   │   ├── RecordQueueTest.java
+│   │   │                       │   │   ├── RecordContextStub.java
+│   │   │                       │   │   ├── RecordCollectorTest.java
+│   │   │                       │   │   ├── QuickUnionTest.java
+│   │   │                       │   │   ├── PunctuationQueueTest.java
+│   │   │                       │   │   ├── ProcessorTopologyTest.java
+│   │   │                       │   │   ├── ProcessorStateManagerTest.java
+│   │   │                       │   │   ├── ProcessorNodeTest.java
+│   │   │                       │   │   ├── PartitionGroupTest.java
+│   │   │                       │   │   ├── MockStreamsMetrics.java
+│   │   │                       │   │   ├── MinTimestampTrackerTest.java
+│   │   │                       │   │   ├── InternalTopicManagerTest.java
+│   │   │                       │   │   ├── InternalTopicConfigTest.java
+│   │   │                       │   │   ├── GlobalStreamThreadTest.java
+│   │   │                       │   │   ├── GlobalStateTaskTest.java
+│   │   │                       │   │   ├── GlobalStateManagerImplTest.java
+│   │   │                       │   │   ├── CopartitionedTopicsValidatorTest.java
+│   │   │                       │   │   ├── assignment
+│   │   │                       │   │   │   ├── SubscriptionInfoTest.java
+│   │   │                       │   │   │   ├── StickyTaskAssignorTest.java
+│   │   │                       │   │   │   ├── ClientStateTest.java
+│   │   │                       │   │   │   └── AssignmentInfoTest.java
+│   │   │                       │   │   ├── AbstractTaskTest.java
+│   │   │                       │   │   └── AbstractProcessorContextTest.java
+│   │   │                       │   ├── FailOnInvalidTimestampTest.java
+│   │   │                       │   └── DefaultPartitionGrouperTest.java
+│   │   │                       ├── perf
+│   │   │                       │   ├── YahooBenchmark.java
+│   │   │                       │   └── SimpleBenchmark.java
+│   │   │                       ├── kstream
+│   │   │                       │   ├── WindowTest.java
+│   │   │                       │   ├── WindowsTest.java
+│   │   │                       │   ├── UnlimitedWindowsTest.java
+│   │   │                       │   ├── TimeWindowsTest.java
+│   │   │                       │   ├── SessionWindowsTest.java
+│   │   │                       │   ├── KStreamBuilderTest.java
+│   │   │                       │   ├── JoinWindowsTest.java
+│   │   │                       │   └── internals
+│   │   │                       │       ├── WindowedStreamPartitionerTest.java
+│   │   │                       │       ├── UnlimitedWindowTest.java
+│   │   │                       │       ├── TimeWindowTest.java
+│   │   │                       │       ├── SessionWindowTest.java
+│   │   │                       │       ├── SessionKeySerdeTest.java
+│   │   │                       │       ├── KTableSourceTest.java
+│   │   │                       │       ├── KTableMapValuesTest.java
+│   │   │                       │       ├── KTableMapKeysTest.java
+│   │   │                       │       ├── KTableKTableOuterJoinTest.java
+│   │   │                       │       ├── KTableKTableLeftJoinTest.java
+│   │   │                       │       ├── KTableKTableJoinTest.java
+│   │   │                       │       ├── KTableImplTest.java
+│   │   │                       │       ├── KTableForeachTest.java
+│   │   │                       │       ├── KTableFilterTest.java
+│   │   │                       │       ├── KTableAggregateTest.java
+│   │   │                       │       ├── KStreamWindowAggregateTest.java
+│   │   │                       │       ├── KStreamTransformValuesTest.java
+│   │   │                       │       ├── KStreamTransformTest.java
+│   │   │                       │       ├── KStreamSessionWindowAggregateProcessorTest.java
+│   │   │                       │       ├── KStreamSelectKeyTest.java
+│   │   │                       │       ├── KStreamPrintTest.java
+│   │   │                       │       ├── KStreamPeekTest.java
+│   │   │                       │       ├── KStreamMapValuesTest.java
+│   │   │                       │       ├── KStreamMapTest.java
+│   │   │                       │       ├── KStreamKTableLeftJoinTest.java
+│   │   │                       │       ├── KStreamKTableJoinTest.java
+│   │   │                       │       ├── KStreamKStreamLeftJoinTest.java
+│   │   │                       │       ├── KStreamKStreamJoinTest.java
+│   │   │                       │       ├── KStreamImplTest.java
+│   │   │                       │       ├── KStreamForeachTest.java
+│   │   │                       │       ├── KStreamFlatMapValuesTest.java
+│   │   │                       │       ├── KStreamFlatMapTest.java
+│   │   │                       │       ├── KStreamFilterTest.java
+│   │   │                       │       ├── KStreamBranchTest.java
+│   │   │                       │       ├── KGroupedTableImplTest.java
+│   │   │                       │       ├── KGroupedStreamImplTest.java
+│   │   │                       │       ├── GlobalKTableJoinsTest.java
+│   │   │                       │       └── AbstractStreamTest.java
+│   │   │                       ├── KeyValueTest.java
+│   │   │                       ├── KafkaStreamsTest.java
+│   │   │                       └── integration
+│   │   │                           ├── utils
+│   │   │                           │   ├── KafkaEmbedded.java
+│   │   │                           │   ├── IntegrationTestUtils.java
+│   │   │                           │   └── EmbeddedKafkaCluster.java
+│   │   │                           ├── ResetIntegrationTest.java
+│   │   │                           ├── RegexSourceIntegrationTest.java
+│   │   │                           ├── QueryableStateIntegrationTest.java
+│   │   │                           ├── KTableKTableJoinIntegrationTest.java
+│   │   │                           ├── KStreamsFineGrainedAutoResetIntegrationTest.java
+│   │   │                           ├── KStreamRepartitionJoinTest.java
+│   │   │                           ├── KStreamKTableJoinIntegrationTest.java
+│   │   │                           ├── KStreamAggregationIntegrationTest.java
+│   │   │                           ├── KStreamAggregationDedupIntegrationTest.java
+│   │   │                           ├── JoinIntegrationTest.java
+│   │   │                           ├── InternalTopicIntegrationTest.java
+│   │   │                           ├── GlobalKTableIntegrationTest.java
+│   │   │                           ├── FanoutIntegrationTest.java
+│   │   │                           └── EosIntegrationTest.java
+│   │   └── main
+│   │       └── java
+│   │           └── org
+│   │               └── apache
+│   │                   └── kafka
+│   │                       └── streams
+│   │                           ├── StreamsMetrics.java
+│   │                           ├── StreamsConfig.java
+│   │                           ├── state
+│   │                           │   ├── WindowStore.java
+│   │                           │   ├── WindowStoreIterator.java
+│   │                           │   ├── StreamsMetadata.java
+│   │                           │   ├── Stores.java
+│   │                           │   ├── StateSerdes.java
+│   │                           │   ├── SessionStore.java
+│   │                           │   ├── RocksDBConfigSetter.java
+│   │                           │   ├── ReadOnlyWindowStore.java
+│   │                           │   ├── ReadOnlySessionStore.java
+│   │                           │   ├── ReadOnlyKeyValueStore.java
+│   │                           │   ├── QueryableStoreTypes.java
+│   │                           │   ├── QueryableStoreType.java
+│   │                           │   ├── KeyValueStore.java
+│   │                           │   ├── KeyValueIterator.java
+│   │                           │   ├── internals
+│   │                           │   │   ├── WrappingStoreProvider.java
+│   │                           │   │   ├── WrappedStateStore.java
+│   │                           │   │   ├── WrappedSessionStoreIterator.java
+│   │                           │   │   ├── WindowStoreUtils.java
+│   │                           │   │   ├── WindowStoreSupplier.java
+│   │                           │   │   ├── WindowStoreIteratorWrapper.java
+│   │                           │   │   ├── WindowKeySchema.java
+│   │                           │   │   ├── ThreadCache.java
+│   │                           │   │   ├── StreamThreadStateStoreProvider.java
+│   │                           │   │   ├── StoreChangeLogger.java
+│   │                           │   │   ├── StateStoreProvider.java
+│   │                           │   │   ├── SessionKeySchema.java
+│   │                           │   │   ├── SerializedKeyValueIterator.java
+│   │                           │   │   ├── Segments.java
+│   │                           │   │   ├── Segment.java
+│   │                           │   │   ├── SegmentIterator.java
+│   │                           │   │   ├── SegmentedCacheFunction.java
+│   │                           │   │   ├── SegmentedBytesStore.java
+│   │                           │   │   ├── RocksDBWindowStoreSupplier.java
+│   │                           │   │   ├── RocksDBWindowStore.java
+│   │                           │   │   ├── RocksDBStore.java
+│   │                           │   │   ├── RocksDBSessionStoreSupplier.java
+│   │                           │   │   ├── RocksDBSessionStore.java
+│   │                           │   │   ├── RocksDBSegmentedBytesStore.java
+│   │                           │   │   ├── RocksDBKeyValueStoreSupplier.java
+│   │                           │   │   ├── QueryableStoreProvider.java
+│   │                           │   │   ├── PeekingKeyValueIterator.java
+│   │                           │   │   ├── OrderedBytes.java
+│   │                           │   │   ├── OffsetCheckpoint.java
+│   │                           │   │   ├── NamedCache.java
+│   │                           │   │   ├── MeteredSegmentedBytesStore.java
+│   │                           │   │   ├── MeteredKeyValueStore.java
+│   │                           │   │   ├── MergedSortedCacheWindowStoreKeyValueIterator.java
+│   │                           │   │   ├── MergedSortedCacheWindowStoreIterator.java
+│   │                           │   │   ├── MergedSortedCacheSessionStoreIterator.java
+│   │                           │   │   ├── MergedSortedCacheKeyValueStoreIterator.java
+│   │                           │   │   ├── MemoryNavigableLRUCache.java
+│   │                           │   │   ├── MemoryLRUCache.java
+│   │                           │   │   ├── LRUCacheEntry.java
+│   │                           │   │   ├── KeyValueIterators.java
+│   │                           │   │   ├── InMemoryLRUCacheStoreSupplier.java
+│   │                           │   │   ├── InMemoryKeyValueStoreSupplier.java
+│   │                           │   │   ├── InMemoryKeyValueStore.java
+│   │                           │   │   ├── InMemoryKeyValueLoggedStore.java
+│   │                           │   │   ├── HasNextCondition.java
+│   │                           │   │   ├── GlobalStateStoreProvider.java
+│   │                           │   │   ├── FilteredCacheIterator.java
+│   │                           │   │   ├── DelegatingPeekingKeyValueIterator.java
+│   │                           │   │   ├── CompositeReadOnlyWindowStore.java
+│   │                           │   │   ├── CompositeReadOnlySessionStore.java
+│   │                           │   │   ├── CompositeReadOnlyKeyValueStore.java
+│   │                           │   │   ├── ChangeLoggingSegmentedBytesStore.java
+│   │                           │   │   ├── ChangeLoggingKeyValueStore.java
+│   │                           │   │   ├── ChangeLoggingKeyValueBytesStore.java
+│   │                           │   │   ├── CachingWindowStore.java
+│   │                           │   │   ├── CachingSessionStore.java
+│   │                           │   │   ├── CachingKeyValueStore.java
+│   │                           │   │   ├── CacheFunction.java
+│   │                           │   │   ├── CachedStateStore.java
+│   │                           │   │   ├── AbstractStoreSupplier.java
+│   │                           │   │   └── AbstractMergedSortedCacheStoreIterator.java
+│   │                           │   └── HostInfo.java
+│   │                           ├── processor
+│   │                           │   ├── WallclockTimestampExtractor.java
+│   │                           │   ├── UsePreviousTimeOnInvalidTimestamp.java
+│   │                           │   ├── TopologyDescription.java
+│   │                           │   ├── TopologyBuilder.java
+│   │                           │   ├── TimestampExtractor.java
+│   │                           │   ├── TaskId.java
+│   │                           │   ├── StreamPartitioner.java
+│   │                           │   ├── StateStoreSupplier.java
+│   │                           │   ├── StateStore.java
+│   │                           │   ├── StateRestoreCallback.java
+│   │                           │   ├── Punctuator.java
+│   │                           │   ├── PunctuationType.java
+│   │                           │   ├── ProcessorSupplier.java
+│   │                           │   ├── Processor.java
+│   │                           │   ├── ProcessorContext.java
+│   │                           │   ├── PartitionGrouper.java
+│   │                           │   ├── LogAndSkipOnInvalidTimestamp.java
+│   │                           │   ├── internals
+│   │                           │   │   ├── TimestampTracker.java
+│   │                           │   │   ├── ThreadStateTransitionValidator.java
+│   │                           │   │   ├── StreamThread.java
+│   │                           │   │   ├── StreamTask.java
+│   │                           │   │   ├── StreamsMetricsImpl.java
+│   │                           │   │   ├── StreamsMetadataState.java
+│   │                           │   │   ├── StreamsKafkaClient.java
+│   │                           │   │   ├── StreamPartitionAssignor.java
+│   │                           │   │   ├── StoreChangelogReader.java
+│   │                           │   │   ├── StateRestorer.java
+│   │                           │   │   ├── StateManager.java
+│   │                           │   │   ├── StateDirectory.java
+│   │                           │   │   ├── StandbyTask.java
+│   │                           │   │   ├── StandbyContextImpl.java
+│   │                           │   │   ├── StampedRecord.java
+│   │                           │   │   ├── Stamped.java
+│   │                           │   │   ├── SourceNodeRecordDeserializer.java
+│   │                           │   │   ├── SourceNode.java
+│   │                           │   │   ├── SinkNode.java
+│   │                           │   │   ├── RecordQueue.java
+│   │                           │   │   ├── RecordDeserializer.java
+│   │                           │   │   ├── RecordContext.java
+│   │                           │   │   ├── RecordCollector.java
+│   │                           │   │   ├── RecordCollectorImpl.java
+│   │                           │   │   ├── QuickUnion.java
+│   │                           │   │   ├── PunctuationSchedule.java
+│   │                           │   │   ├── PunctuationQueue.java
+│   │                           │   │   ├── ProcessorTopology.java
+│   │                           │   │   ├── ProcessorStateManager.java
+│   │                           │   │   ├── ProcessorRecordContext.java
+│   │                           │   │   ├── ProcessorNodePunctuator.java
+│   │                           │   │   ├── ProcessorNode.java
+│   │                           │   │   ├── ProcessorContextImpl.java
+│   │                           │   │   ├── PartitionGroup.java
+│   │                           │   │   ├── MinTimestampTracker.java
+│   │                           │   │   ├── InternalTopicManager.java
+│   │                           │   │   ├── InternalTopicConfig.java
+│   │                           │   │   ├── InternalProcessorContext.java
+│   │                           │   │   ├── GlobalStreamThread.java
+│   │                           │   │   ├── GlobalStateUpdateTask.java
+│   │                           │   │   ├── GlobalStateManager.java
+│   │                           │   │   ├── GlobalStateManagerImpl.java
+│   │                           │   │   ├── GlobalStateMaintainer.java
+│   │                           │   │   ├── GlobalProcessorContextImpl.java
+│   │                           │   │   ├── DefaultStreamPartitioner.java
+│   │                           │   │   ├── DefaultKafkaClientSupplier.java
+│   │                           │   │   ├── Checkpointable.java
+│   │                           │   │   ├── ChangelogReader.java
+│   │                           │   │   ├── assignment
+│   │                           │   │   │   ├── TaskAssignor.java
+│   │                           │   │   │   ├── SubscriptionInfo.java
+│   │                           │   │   │   ├── StickyTaskAssignor.java
+│   │                           │   │   │   ├── ClientState.java
+│   │                           │   │   │   └── AssignmentInfo.java
+│   │                           │   │   ├── AbstractTask.java
+│   │                           │   │   └── AbstractProcessorContext.java
+│   │                           │   ├── FailOnInvalidTimestamp.java
+│   │                           │   ├── ExtractRecordMetadataTimestamp.java
+│   │                           │   ├── DefaultPartitionGrouper.java
+│   │                           │   ├── Cancellable.java
+│   │                           │   └── AbstractProcessor.java
+│   │                           ├── kstream
+│   │                           │   ├── Windows.java
+│   │                           │   ├── Window.java
+│   │                           │   ├── Windowed.java
+│   │                           │   ├── ValueTransformerSupplier.java
+│   │                           │   ├── ValueTransformer.java
+│   │                           │   ├── ValueMapper.java
+│   │                           │   ├── ValueJoiner.java
+│   │                           │   ├── UnlimitedWindows.java
+│   │                           │   ├── TransformerSupplier.java
+│   │                           │   ├── Transformer.java
+│   │                           │   ├── TimeWindows.java
+│   │                           │   ├── SessionWindows.java
+│   │                           │   ├── Reducer.java
+│   │                           │   ├── PrintForeachAction.java
+│   │                           │   ├── Predicate.java
+│   │                           │   ├── Merger.java
+│   │                           │   ├── KTable.java
+│   │                           │   ├── KStream.java
+│   │                           │   ├── KStreamBuilder.java
+│   │                           │   ├── KGroupedTable.java
+│   │                           │   ├── KGroupedStream.java
+│   │                           │   ├── KeyValueMapper.java
+│   │                           │   ├── JoinWindows.java
+│   │                           │   ├── internals
+│   │                           │   │   ├── WindowedStreamPartitioner.java
+│   │                           │   │   ├── WindowedSerializer.java
+│   │                           │   │   ├── WindowedDeserializer.java
+│   │                           │   │   ├── UnlimitedWindow.java
+│   │                           │   │   ├── TupleForwarder.java
+│   │                           │   │   ├── TimeWindow.java
+│   │                           │   │   ├── SessionWindow.java
+│   │                           │   │   ├── SessionKeySerde.java
+│   │                           │   │   ├── KTableValueGetterSupplier.java
+│   │                           │   │   ├── KTableValueGetter.java
+│   │                           │   │   ├── KTableSourceValueGetterSupplier.java
+│   │                           │   │   ├── KTableSource.java
+│   │                           │   │   ├── KTableRepartitionMap.java
+│   │                           │   │   ├── KTableReduce.java
+│   │                           │   │   ├── KTableProcessorSupplier.java
+│   │                           │   │   ├── KTableMapValues.java
+│   │                           │   │   ├── KTableKTableRightJoin.java
+│   │                           │   │   ├── KTableKTableOuterJoin.java
+│   │                           │   │   ├── KTableKTableLeftJoinValueGetter.java
+│   │                           │   │   ├── KTableKTableLeftJoin.java
+│   │                           │   │   ├── KTableKTableJoinValueGetter.java
+│   │                           │   │   ├── KTableKTableJoinMerger.java
+│   │                           │   │   ├── KTableKTableJoin.java
+│   │                           │   │   ├── KTableKTableAbstractJoin.java
+│   │                           │   │   ├── KTableImpl.java
+│   │                           │   │   ├── KTableFilter.java
+│   │                           │   │   ├── KTableAggregate.java
+│   │                           │   │   ├── KStreamWindowReduce.java
+│   │                           │   │   ├── KStreamWindowAggregate.java
+│   │                           │   │   ├── KStreamTransformValues.java
+│   │                           │   │   ├── KStreamTransform.java
+│   │                           │   │   ├── KStreamSessionWindowAggregate.java
+│   │                           │   │   ├── KStreamReduce.java
+│   │                           │   │   ├── KStreamPrint.java
+│   │                           │   │   ├── KStreamPeek.java
+│   │                           │   │   ├── KStreamPassThrough.java
+│   │                           │   │   ├── KStreamMapValues.java
+│   │                           │   │   ├── KStreamMap.java
+│   │                           │   │   ├── KStreamKTableJoinProcessor.java
+│   │                           │   │   ├── KStreamKTableJoin.java
+│   │                           │   │   ├── KStreamKStreamJoin.java
+│   │                           │   │   ├── KStreamJoinWindow.java
+│   │                           │   │   ├── KStreamImpl.java
+│   │                           │   │   ├── KStreamGlobalKTableJoin.java
+│   │                           │   │   ├── KStreamFlatMapValues.java
+│   │                           │   │   ├── KStreamFlatMap.java
+│   │                           │   │   ├── KStreamFilter.java
+│   │                           │   │   ├── KStreamBranch.java
+│   │                           │   │   ├── KStreamAggregate.java
+│   │                           │   │   ├── KStreamAggProcessorSupplier.java
+│   │                           │   │   ├── KGroupedTableImpl.java
+│   │                           │   │   ├── KGroupedStreamImpl.java
+│   │                           │   │   ├── GlobalKTableImpl.java
+│   │                           │   │   ├── ForwardingCacheFlushListener.java
+│   │                           │   │   ├── Change.java
+│   │                           │   │   ├── ChangedSerializer.java
+│   │                           │   │   ├── ChangedDeserializer.java
+│   │                           │   │   ├── CacheFlushListener.java
+│   │                           │   │   ├── AbstractStream.java
+│   │                           │   │   └── AbstractKTableKTableJoinValueGetterSupplier.java
+│   │                           │   ├── Initializer.java
+│   │                           │   ├── GlobalKTable.java
+│   │                           │   ├── ForeachAction.java
+│   │                           │   └── Aggregator.java
+│   │                           ├── KeyValue.java
+│   │                           ├── KafkaStreams.java
+│   │                           ├── KafkaClientSupplier.java
+│   │                           └── errors
+│   │                               ├── TopologyBuilderException.java
+│   │                               ├── TaskIdFormatException.java
+│   │                               ├── TaskAssignmentException.java
+│   │                               ├── StreamsException.java
+│   │                               ├── ProcessorStateException.java
+│   │                               ├── LogAndFailExceptionHandler.java
+│   │                               ├── LogAndContinueExceptionHandler.java
+│   │                               ├── LockException.java
+│   │                               ├── InvalidStateStoreException.java
+│   │                               ├── DeserializationExceptionHandler.java
+│   │                               └── BrokerNotFoundException.java
+│   └── examples
+│       └── src
+│           └── main
+│               └── java
+│                   └── org
+│                       └── apache
+│                           └── kafka
+│                               └── streams
+│                                   └── examples
+│                                       ├── wordcount
+│                                       │   ├── WordCountProcessorDemo.java
+│                                       │   └── WordCountDemo.java
+│                                       ├── pipe
+│                                       │   └── PipeDemo.java
+│                                       └── pageview
+│                                           ├── PageViewUntypedDemo.java
+│                                           ├── PageViewTypedDemo.java
+│                                           ├── JsonTimestampExtractor.java
+│                                           ├── JsonPOJOSerializer.java
+│                                           └── JsonPOJODeserializer.java
+├── settings.gradle
+├── release.py
+├── release_notes.py
+├── README.md
+├── NOTICE
+├── log4j-appender
+│   └── src
+│       ├── test
+│       │   └── java
+│       │       └── org
+│       │           └── apache
+│       │               └── kafka
+│       │                   └── log4jappender
+│       │                       ├── MockKafkaLog4jAppender.java
+│       │                       └── KafkaLog4jAppenderTest.java
+│       └── main
+│           └── java
+│               └── org
+│                   └── apache
+│                       └── kafka
+│                           └── log4jappender
+│                               └── KafkaLog4jAppender.java
+├── LICENSE
+├── kafka-merge-pr.py
+├── jmh-benchmarks
+│   ├── src
+│   │   └── main
+│   │       └── java
+│   │           └── org
+│   │               └── apache
+│   │                   └── kafka
+│   │                       └── jmh
+│   │                           ├── record
+│   │                           │   └── RecordBatchIterationBenchmark.java
+│   │                           ├── producer
+│   │                           │   └── ProducerRecordBenchmark.java
+│   │                           ├── common
+│   │                           │   └── TopicBenchmark.java
+│   │                           └── cache
+│   │                               └── LRUCacheBenchmark.java
+│   ├── README.md
+│   └── jmh.sh
+├── jenkins.sh
+├── HEADER
+├── gradle.properties
+├── gradle
+│   ├── resources
+│   │   └── rat-output-to-html.xsl
+│   ├── rat.gradle
+│   ├── findbugs-exclude.xml
+│   ├── dependencies.gradle
+│   └── buildscript.gradle
+├── examples
+│   ├── src
+│   │   └── main
+│   │       └── java
+│   │           └── kafka
+│   │               └── examples
+│   │                   ├── SimpleConsumerDemo.java
+│   │                   ├── Producer.java
+│   │                   ├── KafkaProperties.java
+│   │                   ├── KafkaConsumerProducerDemo.java
+│   │                   └── Consumer.java
+│   ├── README
+│   └── bin
+│       ├── java-simple-consumer-demo.sh
+│       └── java-producer-consumer-demo.sh
+├── docs
+│   ├── uses.html
+│   ├── upgrade.html
+│   ├── toc.html
+│   ├── streams
+│   │   ├── upgrade-guide.html
+│   │   ├── quickstart.html
+│   │   ├── index.html
+│   │   ├── developer-guide.html
+│   │   ├── core-concepts.html
+│   │   └── architecture.html
+│   ├── security.html
+│   ├── quickstart.html
+│   ├── protocol.html
+│   ├── ops.html
+│   ├── migration.html
+│   ├── js
+│   │   └── templateData.js
+│   ├── introduction.html
+│   ├── implementation.html
+│   ├── images
+│   │   ├── tracking_high_level.png
+│   │   ├── streams-welcome.png
+│   │   ├── streams-table-updates-02.png
+│   │   ├── streams-table-updates-01.png
+│   │   ├── streams-table-duality-03.png
+│   │   ├── streams-table-duality-02.png
+│   │   ├── streams-table-duality-01.png
+│   │   ├── streams-interactive-queries-api-02.png
+│   │   ├── streams-interactive-queries-api-01.png
+│   │   ├── streams-interactive-queries-03.png
+│   │   ├── streams-interactive-queries-02.png
+│   │   ├── streams-interactive-queries-01.png
+│   │   ├── streams-concepts-topology.jpg
+│   │   ├── streams-architecture-topology.jpg
+│   │   ├── streams-architecture-threads.jpg
+│   │   ├── streams-architecture-tasks.jpg
+│   │   ├── streams-architecture-states.jpg
+│   │   ├── streams-architecture-overview.jpg
+│   │   ├── producer_consumer.png
+│   │   ├── mirror-maker.png
+│   │   ├── log_consumer.png
+│   │   ├── log_compaction.png
+│   │   ├── log_cleaner_anatomy.png
+│   │   ├── log_anatomy.png
+│   │   ├── kafka_multidc.png
+│   │   ├── kafka_multidc_complex.png
+│   │   ├── kafka_log.png
+│   │   ├── kafka-apis.png
+│   │   ├── icons
+│   │   │   ├── tutorials--white.png
+│   │   │   ├── tutorials.png
+│   │   │   ├── documentation--white.png
+│   │   │   ├── documentation.png
+│   │   │   ├── architecture--white.png
+│   │   │   └── architecture.png
+│   │   └── consumer-groups.png
+│   ├── ecosystem.html
+│   ├── documentation.html
+│   ├── documentation
+│   │   ├── streams
+│   │   │   ├── upgrade-guide.html
+│   │   │   ├── quickstart.html
+│   │   │   ├── index.html
+│   │   │   ├── developer-guide.html
+│   │   │   ├── core-concepts.html
+│   │   │   └── architecture.html
+│   │   └── index.html
+│   ├── design.html
+│   ├── connect.html
+│   ├── configuration.html
+│   └── api.html
+├── doap_Kafka.rdf
+├── core
+│   └── src
+│       ├── test
+│       │   ├── scala
+│       │   │   ├── unit
+│       │   │   │   └── kafka
+│       │   │   │       ├── zk
+│       │   │   │       │   ├── ZooKeeperTestHarness.scala
+│       │   │   │       │   ├── ZKPathTest.scala
+│       │   │   │       │   ├── ZkFourLetterWords.scala
+│       │   │   │       │   ├── ZKEphemeralTest.scala
+│       │   │   │       │   └── EmbeddedZookeeper.scala
+│       │   │   │       ├── utils
+│       │   │   │       │   ├── ZkUtilsTest.scala
+│       │   │   │       │   ├── UtilsTest.scala
+│       │   │   │       │   ├── timer
+│       │   │   │       │   │   ├── TimerTest.scala
+│       │   │   │       │   │   ├── TimerTaskListTest.scala
+│       │   │   │       │   │   └── MockTimer.scala
+│       │   │   │       │   ├── TestUtils.scala
+│       │   │   │       │   ├── ShutdownableThreadTest.scala
+│       │   │   │       │   ├── SchedulerTest.scala
+│       │   │   │       │   ├── ReplicationUtilsTest.scala
+│       │   │   │       │   ├── MockTime.scala
+│       │   │   │       │   ├── MockScheduler.scala
+│       │   │   │       │   ├── JsonTest.scala
+│       │   │   │       │   ├── JaasTestUtils.scala
+│       │   │   │       │   ├── IteratorTemplateTest.scala
+│       │   │   │       │   └── CommandLineUtilsTest.scala
+│       │   │   │       ├── tools
+│       │   │   │       │   ├── MirrorMakerTest.scala
+│       │   │   │       │   ├── ConsumerPerformanceTest.scala
+│       │   │   │       │   ├── ConsoleProducerTest.scala
+│       │   │   │       │   └── ConsoleConsumerTest.scala
+│       │   │   │       ├── server
+│       │   │   │       │   ├── ThrottledResponseExpirationTest.scala
+│       │   │   │       │   ├── SimpleFetchTest.scala
+│       │   │   │       │   ├── SessionExpireListenerTest.scala
+│       │   │   │       │   ├── ServerStartupTest.scala
+│       │   │   │       │   ├── ServerShutdownTest.scala
+│       │   │   │       │   ├── ServerMetricsTest.scala
+│       │   │   │       │   ├── ServerGenerateClusterIdTest.scala
+│       │   │   │       │   ├── ServerGenerateBrokerIdTest.scala
+│       │   │   │       │   ├── SaslApiVersionsRequestTest.scala
+│       │   │   │       │   ├── RequestQuotaTest.scala
+│       │   │   │       │   ├── ReplicationQuotasTest.scala
+│       │   │   │       │   ├── ReplicationQuotaManagerTest.scala
+│       │   │   │       │   ├── ReplicaManagerTest.scala
+│       │   │   │       │   ├── ReplicaManagerQuotasTest.scala
+│       │   │   │       │   ├── ReplicaFetchTest.scala
+│       │   │   │       │   ├── ReplicaFetcherThreadTest.scala
+│       │   │   │       │   ├── ProduceRequestTest.scala
+│       │   │   │       │   ├── OffsetCommitTest.scala
+│       │   │   │       │   ├── MetadataRequestTest.scala
+│       │   │   │       │   ├── MetadataCacheTest.scala
+│       │   │   │       │   ├── LogRecoveryTest.scala
+│       │   │   │       │   ├── LogOffsetTest.scala
+│       │   │   │       │   ├── LeaderElectionTest.scala
+│       │   │   │       │   ├── KafkaMetricReporterClusterIdTest.scala
+│       │   │   │       │   ├── KafkaConfigTest.scala
+│       │   │   │       │   ├── KafkaApisTest.scala
+│       │   │   │       │   ├── ISRExpirationTest.scala
+│       │   │   │       │   ├── HighwatermarkPersistenceTest.scala
+│       │   │   │       │   ├── FetchRequestTest.scala
+│       │   │   │       │   ├── epoch
+│       │   │   │       │   │   ├── util
+│       │   │   │       │   │   │   └── ReplicaFetcherMockBlockingSend.scala
+│       │   │   │       │   │   ├── OffsetsForLeaderEpochTest.scala
+│       │   │   │       │   │   ├── LeaderEpochIntegrationTest.scala
+│       │   │   │       │   │   ├── LeaderEpochFileCacheTest.scala
+│       │   │   │       │   │   └── EpochDrivenReplicationProtocolAcceptanceTest.scala
+│       │   │   │       │   ├── EdgeCaseRequestTest.scala
+│       │   │   │       │   ├── DynamicConfigTest.scala
+│       │   │   │       │   ├── DynamicConfigChangeTest.scala
+│       │   │   │       │   ├── DeleteTopicsRequestTest.scala
+│       │   │   │       │   ├── DelayedOperationTest.scala
+│       │   │   │       │   ├── CreateTopicsRequestWithPolicyTest.scala
+│       │   │   │       │   ├── CreateTopicsRequestTest.scala
+│       │   │   │       │   ├── ControlledShutdownLeaderSelectorTest.scala
+│       │   │   │       │   ├── ClientQuotaManagerTest.scala
+│       │   │   │       │   ├── checkpoints
+│       │   │   │       │   │   ├── OffsetCheckpointFileTest.scala
+│       │   │   │       │   │   └── LeaderEpochCheckpointFileTest.scala
+│       │   │   │       │   ├── BaseRequestTest.scala
+│       │   │   │       │   ├── ApiVersionsTest.scala
+│       │   │   │       │   ├── ApiVersionsRequestTest.scala
+│       │   │   │       │   ├── AdvertiseBrokerTest.scala
+│       │   │   │       │   ├── AddPartitionsToTxnRequestTest.scala
+│       │   │   │       │   ├── AbstractFetcherThreadTest.scala
+│       │   │   │       │   └── AbstractCreateTopicsRequestTest.scala
+│       │   │   │       ├── security
+│       │   │   │       │   └── auth
+│       │   │   │       │       ├── ZkAuthorizationTest.scala
+│       │   │   │       │       ├── SimpleAclAuthorizerTest.scala
+│       │   │   │       │       ├── ResourceTypeTest.scala
+│       │   │   │       │       ├── PermissionTypeTest.scala
+│       │   │   │       │       ├── OperationTest.scala
+│       │   │   │       │       └── AclTest.scala
+│       │   │   │       ├── producer
+│       │   │   │       │   ├── SyncProducerTest.scala
+│       │   │   │       │   ├── ProducerTest.scala
+│       │   │   │       │   └── AsyncProducerTest.scala
+│       │   │   │       ├── network
+│       │   │   │       │   └── SocketServerTest.scala
+│       │   │   │       ├── metrics
+│       │   │   │       │   ├── MetricsTest.scala
+│       │   │   │       │   └── KafkaTimerTest.scala
+│       │   │   │       ├── message
+│       │   │   │       │   ├── MessageTest.scala
+│       │   │   │       │   ├── MessageCompressionTest.scala
+│       │   │   │       │   ├── ByteBufferMessageSetTest.scala
+│       │   │   │       │   └── BaseMessageSetTestCases.scala
+│       │   │   │       ├── log
+│       │   │   │       │   ├── TransactionIndexTest.scala
+│       │   │   │       │   ├── TimeIndexTest.scala
+│       │   │   │       │   ├── ProducerStateManagerTest.scala
+│       │   │   │       │   ├── OffsetMapTest.scala
+│       │   │   │       │   ├── OffsetIndexTest.scala
+│       │   │   │       │   ├── LogValidatorTest.scala
+│       │   │   │       │   ├── LogTest.scala
+│       │   │   │       │   ├── LogSegmentTest.scala
+│       │   │   │       │   ├── LogManagerTest.scala
+│       │   │   │       │   ├── LogConfigTest.scala
+│       │   │   │       │   ├── LogCleanerTest.scala
+│       │   │   │       │   ├── LogCleanerManagerTest.scala
+│       │   │   │       │   ├── LogCleanerLagIntegrationTest.scala
+│       │   │   │       │   ├── LogCleanerIntegrationTest.scala
+│       │   │   │       │   ├── BrokerCompressionTest.scala
+│       │   │   │       │   └── AbstractLogCleanerIntegrationTest.scala
+│       │   │   │       ├── KafkaConfigTest.scala
+│       │   │   │       ├── javaapi
+│       │   │   │       │   ├── message
+│       │   │   │       │   │   ├── ByteBufferMessageSetTest.scala
+│       │   │   │       │   │   └── BaseMessageSetTestCases.scala
+│       │   │   │       │   └── consumer
+│       │   │   │       │       └── ZookeeperConsumerConnectorTest.scala
+│       │   │   │       ├── integration
+│       │   │   │       │   ├── UncleanLeaderElectionTest.scala
+│       │   │   │       │   ├── TopicMetadataTest.scala
+│       │   │   │       │   ├── ProducerConsumerTestHarness.scala
+│       │   │   │       │   ├── PrimitiveApiTest.scala
+│       │   │   │       │   ├── MinIsrConfigTest.scala
+│       │   │   │       │   ├── MetricsDuringTopicCreationDeletionTest.scala
+│       │   │   │       │   ├── KafkaServerTestHarness.scala
+│       │   │   │       │   ├── FetcherTest.scala
+│       │   │   │       │   └── AutoOffsetResetTest.scala
+│       │   │   │       ├── coordinator
+│       │   │   │       │   ├── transaction
+│       │   │   │       │   │   ├── TransactionStateManagerTest.scala
+│       │   │   │       │   │   ├── TransactionMetadataTest.scala
+│       │   │   │       │   │   ├── TransactionMarkerRequestCompletionHandlerTest.scala
+│       │   │   │       │   │   ├── TransactionMarkerChannelManagerTest.scala
+│       │   │   │       │   │   ├── TransactionLogTest.scala
+│       │   │   │       │   │   ├── TransactionCoordinatorTest.scala
+│       │   │   │       │   │   └── ProducerIdManagerTest.scala
+│       │   │   │       │   └── group
+│       │   │   │       │       ├── MemberMetadataTest.scala
+│       │   │   │       │       ├── GroupMetadataTest.scala
+│       │   │   │       │       ├── GroupMetadataManagerTest.scala
+│       │   │   │       │       └── GroupCoordinatorTest.scala
+│       │   │   │       ├── controller
+│       │   │   │       │   ├── ControllerTestUtils.scala
+│       │   │   │       │   ├── ControllerIntegrationTest.scala
+│       │   │   │       │   ├── ControllerFailoverTest.scala
+│       │   │   │       │   └── ControllerEventManagerTest.scala
+│       │   │   │       ├── consumer
+│       │   │   │       │   ├── ZookeeperConsumerConnectorTest.scala
+│       │   │   │       │   ├── TopicFilterTest.scala
+│       │   │   │       │   ├── PartitionAssignorTest.scala
+│       │   │   │       │   └── ConsumerIteratorTest.scala
+│       │   │   │       ├── common
+│       │   │   │       │   ├── ZkNodeChangeNotificationListenerTest.scala
+│       │   │   │       │   └── ConfigTest.scala
+│       │   │   │       ├── cluster
+│       │   │   │       │   └── BrokerEndPointTest.scala
+│       │   │   │       ├── api
+│       │   │   │       │   ├── RequestResponseSerializationTest.scala
+│       │   │   │       │   ├── FetchRequestTest.scala
+│       │   │   │       │   └── ApiUtilsTest.scala
+│       │   │   │       └── admin
+│       │   │   │           ├── TopicCommandTest.scala
+│       │   │   │           ├── TestAdminUtils.scala
+│       │   │   │           ├── ResetConsumerGroupOffsetTest.scala
+│       │   │   │           ├── ReplicationQuotaUtils.scala
+│       │   │   │           ├── ReassignPartitionsCommandTest.scala
+│       │   │   │           ├── ReassignPartitionsCommandArgsTest.scala
+│       │   │   │           ├── ReassignPartitionsClusterTest.scala
+│       │   │   │           ├── RackAwareTest.scala
+│       │   │   │           ├── ListConsumerGroupTest.scala
+│       │   │   │           ├── DescribeConsumerGroupTest.scala
+│       │   │   │           ├── DeleteTopicTest.scala
+│       │   │   │           ├── DeleteConsumerGroupTest.scala
+│       │   │   │           ├── ConfigCommandTest.scala
+│       │   │   │           ├── AdminTest.scala
+│       │   │   │           ├── AdminRackAwareTest.scala
+│       │   │   │           ├── AddPartitionsTest.scala
+│       │   │   │           └── AclCommandTest.scala
+│       │   │   ├── other
+│       │   │   │   ├── kafka.log4j.properties
+│       │   │   │   └── kafka
+│       │   │   │       ├── TestTruncate.scala
+│       │   │   │       ├── TestPurgatoryPerformance.scala
+│       │   │   │       ├── TestOffsetManager.scala
+│       │   │   │       ├── TestLinearWriteSpeed.scala
+│       │   │   │       ├── TestKafkaAppender.scala
+│       │   │   │       ├── TestCrcPerformance.scala
+│       │   │   │       ├── StressTestLog.scala
+│       │   │   │       └── ReplicationQuotasTestRig.scala
+│       │   │   ├── kafka
+│       │   │   │   ├── tools
+│       │   │   │   │   ├── TestLogCleaning.scala
+│       │   │   │   │   └── ReplicaVerificationToolTest.scala
+│       │   │   │   ├── security
+│       │   │   │   │   └── minikdc
+│       │   │   │   │       └── MiniKdc.scala
+│       │   │   │   └── common
+│       │   │   │       └── InterBrokerSendThreadTest.scala
+│       │   │   └── integration
+│       │   │       └── kafka
+│       │   │           ├── tools
+│       │   │           │   └── MirrorMakerIntegrationTest.scala
+│       │   │           ├── server
+│       │   │           │   ├── ReplicaFetcherThreadFatalErrorTest.scala
+│       │   │           │   ├── MultipleListenersWithSameSecurityProtocolBaseTest.scala
+│       │   │           │   ├── MultipleListenersWithDefaultJaasContextTest.scala
+│       │   │           │   └── MultipleListenersWithAdditionalJaasContextTest.scala
+│       │   │           ├── api
+│       │   │           │   ├── UserQuotaTest.scala
+│       │   │           │   ├── UserClientIdQuotaTest.scala
+│       │   │           │   ├── TransactionsTest.scala
+│       │   │           │   ├── TransactionsBounceTest.scala
+│       │   │           │   ├── SslProducerSendTest.scala
+│       │   │           │   ├── SslEndToEndAuthorizationTest.scala
+│       │   │           │   ├── SslConsumerTest.scala
+│       │   │           │   ├── SaslSslConsumerTest.scala
+│       │   │           │   ├── SaslSslAdminClientIntegrationTest.scala
+│       │   │           │   ├── SaslSetup.scala
+│       │   │           │   ├── SaslScramSslEndToEndAuthorizationTest.scala
+│       │   │           │   ├── SaslPlaintextConsumerTest.scala
+│       │   │           │   ├── SaslPlainSslEndToEndAuthorizationTest.scala
+│       │   │           │   ├── SaslPlainPlaintextConsumerTest.scala
+│       │   │           │   ├── SaslMultiMechanismConsumerTest.scala
+│       │   │           │   ├── SaslGssapiSslEndToEndAuthorizationTest.scala
+│       │   │           │   ├── SaslEndToEndAuthorizationTest.scala
+│       │   │           │   ├── RackAwareAutoTopicCreationTest.scala
+│       │   │           │   ├── ProducerFailureHandlingTest.scala
+│       │   │           │   ├── ProducerCompressionTest.scala
+│       │   │           │   ├── ProducerBounceTest.scala
+│       │   │           │   ├── PlaintextProducerSendTest.scala
+│       │   │           │   ├── PlaintextConsumerTest.scala
+│       │   │           │   ├── LogDirFailureTest.scala
+│       │   │           │   ├── LogAppendTimeTest.scala
+│       │   │           │   ├── LegacyAdminClientTest.scala
+│       │   │           │   ├── IntegrationTestHarness.scala
+│       │   │           │   ├── GroupCoordinatorIntegrationTest.scala
+│       │   │           │   ├── FixedPortTestUtils.scala
+│       │   │           │   ├── EndToEndClusterIdTest.scala
+│       │   │           │   ├── EndToEndAuthorizationTest.scala
+│       │   │           │   ├── ConsumerBounceTest.scala
+│       │   │           │   ├── ClientIdQuotaTest.scala
+│       │   │           │   ├── BaseQuotaTest.scala
+│       │   │           │   ├── BaseProducerSendTest.scala
+│       │   │           │   ├── BaseConsumerTest.scala
+│       │   │           │   ├── AuthorizerIntegrationTest.scala
+│       │   │           │   ├── AdminClientWithPoliciesIntegrationTest.scala
+│       │   │           │   └── AdminClientIntegrationTest.scala
+│       │   │           └── admin
+│       │   │               ├── ReassignPartitionsIntegrationTest.scala
+│       │   │               └── BrokerApiVersionsCommandTest.scala
+│       │   └── resources
+│       │       ├── minikdc.ldiff
+│       │       ├── minikdc-krb5.conf
+│       │       └── log4j.properties
+│       └── main
+│           └── scala
+│               └── kafka
+│                   ├── utils
+│                   │   ├── ZkUtils.scala
+│                   │   ├── VerifiableProperties.scala
+│                   │   ├── ToolsUtils.scala
+│                   │   ├── timer
+│                   │   │   ├── TimingWheel.scala
+│                   │   │   ├── TimerTask.scala
+│                   │   │   ├── TimerTaskList.scala
+│                   │   │   └── Timer.scala
+│                   │   ├── Throttler.scala
+│                   │   ├── ShutdownableThread.scala
+│                   │   ├── ReplicationUtils.scala
+│                   │   ├── Pool.scala
+│                   │   ├── NotNothing.scala
+│                   │   ├── Mx4jLoader.scala
+│                   │   ├── Logging.scala
+│                   │   ├── LogDirUtils.scala
+│                   │   ├── Log4jController.scala
+│                   │   ├── KafkaScheduler.scala
+│                   │   ├── Json.scala
+│                   │   ├── IteratorTemplate.scala
+│                   │   ├── FileLock.scala
+│                   │   ├── Exit.scala
+│                   │   ├── DelayedItem.scala
+│                   │   ├── CoreUtils.scala
+│                   │   ├── CommandLineUtils.scala
+│                   │   └── Annotations.scala
+│                   ├── tools
+│                   │   ├── ZooKeeperMainWrapper.scala
+│                   │   ├── VerifyConsumerRebalance.scala
+│                   │   ├── UpdateOffsetsInZK.scala
+│                   │   ├── StreamsResetter.java
+│                   │   ├── StateChangeLogMerger.scala
+│                   │   ├── SimpleConsumerShell.scala
+│                   │   ├── SimpleConsumerPerformance.scala
+│                   │   ├── ReplicaVerificationTool.scala
+│                   │   ├── ReplayLogProducer.scala
+│                   │   ├── ProducerPerformance.scala
+│                   │   ├── PerfConfig.scala
+│                   │   ├── MirrorMaker.scala
+│                   │   ├── JmxTool.scala
+│                   │   ├── ImportZkOffsets.scala
+│                   │   ├── GetOffsetShell.scala
+│                   │   ├── ExportZkOffsets.scala
+│                   │   ├── EndToEndLatency.scala
+│                   │   ├── DumpLogSegments.scala
+│                   │   ├── ConsumerPerformance.scala
+│                   │   ├── ConsumerOffsetChecker.scala
+│                   │   ├── ConsoleProducer.scala
+│                   │   └── ConsoleConsumer.scala
+│                   ├── server
+│                   │   ├── ThrottledResponse.scala
+│                   │   ├── SensorAccess.scala
+│                   │   ├── ReplicationQuotaManager.scala
+│                   │   ├── ReplicaManager.scala
+│                   │   ├── ReplicaFetcherThread.scala
+│                   │   ├── ReplicaFetcherManager.scala
+│                   │   ├── ReplicaFetcherBlockingSend.scala
+│                   │   ├── QuotaFactory.scala
+│                   │   ├── package.html
+│                   │   ├── MetadataCache.scala
+│                   │   ├── LogOffsetMetadata.scala
+│                   │   ├── LogDirFailureChannel.scala
+│                   │   ├── KafkaServerStartable.scala
+│                   │   ├── KafkaServer.scala
+│                   │   ├── KafkaRequestHandler.scala
+│                   │   ├── KafkaHealthcheck.scala
+│                   │   ├── KafkaConfig.scala
+│                   │   ├── KafkaApis.scala
+│                   │   ├── FetchDataInfo.scala
+│                   │   ├── epoch
+│                   │   │   └── LeaderEpochFileCache.scala
+│                   │   ├── DynamicConfig.scala
+│                   │   ├── DynamicConfigManager.scala
+│                   │   ├── DelayedProduce.scala
+│                   │   ├── DelayedOperation.scala
+│                   │   ├── DelayedOperationKey.scala
+│                   │   ├── DelayedFetch.scala
+│                   │   ├── DelayedDeleteTopics.scala
+│                   │   ├── DelayedDeleteRecords.scala
+│                   │   ├── DelayedCreateTopics.scala
+│                   │   ├── ConfigHandler.scala
+│                   │   ├── ClientRequestQuotaManager.scala
+│                   │   ├── ClientQuotaManager.scala
+│                   │   ├── checkpoints
+│                   │   │   ├── OffsetCheckpointFile.scala
+│                   │   │   ├── LeaderEpochCheckpointFile.scala
+│                   │   │   └── CheckpointFile.scala
+│                   │   ├── BrokerStates.scala
+│                   │   ├── BrokerMetadataCheckpoint.scala
+│                   │   ├── AdminManager.scala
+│                   │   ├── AbstractFetcherThread.scala
+│                   │   └── AbstractFetcherManager.scala
+│                   ├── serializer
+│                   │   ├── Encoder.scala
+│                   │   └── Decoder.scala
+│                   ├── security
+│                   │   ├── SecurityUtils.scala
+│                   │   ├── CredentialProvider.scala
+│                   │   └── auth
+│                   │       ├── SimpleAclAuthorizer.scala
+│                   │       ├── ResourceType.scala
+│                   │       ├── Resource.scala
+│                   │       ├── PermissionType.scala
+│                   │       ├── Operation.scala
+│                   │       ├── Authorizer.scala
+│                   │       └── Acl.scala
+│                   ├── producer
+│                   │   ├── SyncProducer.scala
+│                   │   ├── SyncProducerConfig.scala
+│                   │   ├── ProducerTopicStats.scala
+│                   │   ├── ProducerStats.scala
+│                   │   ├── Producer.scala
+│                   │   ├── ProducerRequestStats.scala
+│                   │   ├── ProducerPool.scala
+│                   │   ├── ProducerConfig.scala
+│                   │   ├── ProducerClosedException.scala
+│                   │   ├── Partitioner.scala
+│                   │   ├── KeyedMessage.scala
+│                   │   ├── DefaultPartitioner.scala
+│                   │   ├── ByteArrayPartitioner.scala
+│                   │   ├── BrokerPartitionInfo.scala
+│                   │   ├── BaseProducer.scala
+│                   │   └── async
+│                   │       ├── ProducerSendThread.scala
+│                   │       ├── MissingConfigException.scala
+│                   │       ├── IllegalQueueStateException.scala
+│                   │       ├── EventHandler.scala
+│                   │       ├── DefaultEventHandler.scala
+│                   │       └── AsyncProducerConfig.scala
+│                   ├── network
+│                   │   ├── SocketServer.scala
+│                   │   ├── RequestOrResponseSend.scala
+│                   │   ├── RequestChannel.scala
+│                   │   ├── package.html
+│                   │   ├── Handler.scala
+│                   │   ├── ConnectionConfig.scala
+│                   │   └── BlockingChannel.scala
+│                   ├── metrics
+│                   │   ├── KafkaTimer.scala
+│                   │   ├── KafkaMetricsReporter.scala
+│                   │   ├── KafkaMetricsGroup.scala
+│                   │   ├── KafkaMetricsConfig.scala
+│                   │   └── KafkaCSVMetricsReporter.scala
+│                   ├── message
+│                   │   ├── package.html
+│                   │   ├── MessageSet.scala
+│                   │   ├── Message.scala
+│                   │   ├── MessageLengthException.scala
+│                   │   ├── MessageAndOffset.scala
+│                   │   ├── MessageAndMetadata.scala
+│                   │   ├── InvalidMessageException.scala
+│                   │   ├── CompressionCodec.scala
+│                   │   └── ByteBufferMessageSet.scala
+│                   ├── log
+│                   │   ├── TransactionIndex.scala
+│                   │   ├── TimeIndex.scala
+│                   │   ├── ProducerStateManager.scala
+│                   │   ├── package.html
+│                   │   ├── OffsetMap.scala
+│                   │   ├── OffsetIndex.scala
+│                   │   ├── LogValidator.scala
+│                   │   ├── LogSegment.scala
+│                   │   ├── Log.scala
+│                   │   ├── LogManager.scala
+│                   │   ├── LogConfig.scala
+│                   │   ├── LogCleaner.scala
+│                   │   ├── LogCleanerManager.scala
+│                   │   ├── IndexEntry.scala
+│                   │   ├── CleanerConfig.scala
+│                   │   └── AbstractIndex.scala
+│                   ├── Kafka.scala
+│                   ├── javaapi
+│                   │   ├── TopicMetadata.scala
+│                   │   ├── TopicMetadataResponse.scala
+│                   │   ├── TopicMetadataRequest.scala
+│                   │   ├── producer
+│                   │   │   └── Producer.scala
+│                   │   ├── OffsetResponse.scala
+│                   │   ├── OffsetRequest.scala
+│                   │   ├── OffsetFetchResponse.scala
+│                   │   ├── OffsetFetchRequest.scala
+│                   │   ├── OffsetCommitResponse.scala
+│                   │   ├── OffsetCommitRequest.scala
+│                   │   ├── message
+│                   │   │   ├── MessageSet.scala
+│                   │   │   └── ByteBufferMessageSet.scala
+│                   │   ├── Implicits.scala
+│                   │   ├── GroupCoordinatorResponse.scala
+│                   │   ├── FetchResponse.scala
+│                   │   ├── FetchRequest.scala
+│                   │   └── consumer
+│                   │       ├── ZookeeperConsumerConnector.scala
+│                   │       ├── SimpleConsumer.scala
+│                   │       ├── ConsumerRebalanceListener.java
+│                   │       └── ConsumerConnector.java
+│                   ├── coordinator
+│                   │   ├── transaction
+│                   │   │   ├── TransactionStateManager.scala
+│                   │   │   ├── TransactionMetadata.scala
+│                   │   │   ├── TransactionMarkerRequestCompletionHandler.scala
+│                   │   │   ├── TransactionMarkerChannelManager.scala
+│                   │   │   ├── TransactionLog.scala
+│                   │   │   ├── TransactionCoordinator.scala
+│                   │   │   ├── ProducerIdManager.scala
+│                   │   │   └── DelayedTxnMarker.scala
+│                   │   └── group
+│                   │       ├── OffsetConfig.scala
+│                   │       ├── MemberMetadata.scala
+│                   │       ├── GroupMetadata.scala
+│                   │       ├── GroupMetadataManager.scala
+│                   │       ├── GroupCoordinator.scala
+│                   │       ├── DelayedJoin.scala
+│                   │       └── DelayedHeartbeat.scala
+│                   ├── controller
+│                   │   ├── TopicDeletionManager.scala
+│                   │   ├── ReplicaStateMachine.scala
+│                   │   ├── PartitionStateMachine.scala
+│                   │   ├── PartitionLeaderSelector.scala
+│                   │   ├── KafkaController.scala
+│                   │   ├── ControllerState.scala
+│                   │   ├── ControllerEventManager.scala
+│                   │   └── ControllerChannelManager.scala
+│                   ├── consumer
+│                   │   ├── ZookeeperTopicEventWatcher.scala
+│                   │   ├── ZookeeperConsumerConnector.scala
+│                   │   ├── TopicFilter.scala
+│                   │   ├── TopicEventHandler.scala
+│                   │   ├── TopicCount.scala
+│                   │   ├── SimpleConsumer.scala
+│                   │   ├── PartitionTopicInfo.scala
+│                   │   ├── PartitionAssignor.scala
+│                   │   ├── package.html
+│                   │   ├── KafkaStream.scala
+│                   │   ├── FetchRequestAndResponseStats.scala
+│                   │   ├── FetchedDataChunk.scala
+│                   │   ├── ConsumerTopicStats.scala
+│                   │   ├── ConsumerIterator.scala
+│                   │   ├── ConsumerFetcherThread.scala
+│                   │   ├── ConsumerFetcherManager.scala
+│                   │   ├── ConsumerConnector.scala
+│                   │   ├── ConsumerConfig.scala
+│                   │   └── BaseConsumer.scala
+│                   ├── common
+│                   │   ├── ZkNodeChangeNotificationListener.scala
+│                   │   ├── UnknownTopicOrPartitionException.scala
+│                   │   ├── UnknownMagicByteException.scala
+│                   │   ├── UnknownException.scala
+│                   │   ├── UnknownCodecException.scala
+│                   │   ├── UnavailableProducerException.scala
+│                   │   ├── TopicAndPartition.scala
+│                   │   ├── TopicAlreadyMarkedForDeletionException.scala
+│                   │   ├── ThreadShutdownException.scala
+│                   │   ├── StreamEndException.scala
+│                   │   ├── StateChangeFailedException.scala
+│                   │   ├── RequestTimedOutException.scala
+│                   │   ├── ReplicaNotAvailableException.scala
+│                   │   ├── QueueFullException.scala
+│                   │   ├── OffsetsLoadInProgressException.scala
+│                   │   ├── OffsetOutOfRangeException.scala
+│                   │   ├── OffsetMetadataTooLargeException.scala
+│                   │   ├── OffsetMetadataAndError.scala
+│                   │   ├── NotLeaderForPartitionException.scala
+│                   │   ├── NotEnoughReplicasException.scala
+│                   │   ├── NotEnoughReplicasAfterAppendException.scala
+│                   │   ├── NotCoordinatorForConsumerException.scala
+│                   │   ├── NotAssignedReplicaException.scala
+│                   │   ├── NoReplicaOnlineException.scala
+│                   │   ├── NoEpochForPartitionException.scala
+│                   │   ├── NoBrokersForPartitionException.scala
+│                   │   ├── MessageStreamsExistException.scala
+│                   │   ├── MessageSizeTooLargeException.scala
+│                   │   ├── MessageSetSizeTooLargeException.scala
+│                   │   ├── MessageReader.scala
+│                   │   ├── MessageFormatter.scala
+│                   │   ├── LongRef.scala
+│                   │   ├── LogCleaningAbortedException.scala
+│                   │   ├── LeaderNotAvailableException.scala
+│                   │   ├── LeaderElectionNotNeededException.scala
+│                   │   ├── KafkaStorageException.scala
+│                   │   ├── KafkaException.scala
+│                   │   ├── InvalidOffsetException.scala
+│                   │   ├── InvalidMessageSizeException.scala
+│                   │   ├── InvalidConfigException.scala
+│                   │   ├── InterBrokerSendThread.scala
+│                   │   ├── InconsistentBrokerIdException.scala
+│                   │   ├── GenerateBrokerIdException.scala
+│                   │   ├── FailedToSendMessageException.scala
+│                   │   ├── ErrorMapping.scala
+│                   │   ├── ControllerMovedException.scala
+│                   │   ├── ConsumerRebalanceFailedException.scala
+│                   │   ├── ConsumerCoordinatorNotAvailableException.scala
+│                   │   ├── Config.scala
+│                   │   ├── ClientIdAndTopic.scala
+│                   │   ├── ClientIdAndBroker.scala
+│                   │   ├── BrokerNotAvailableException.scala
+│                   │   ├── BrokerEndPointNotAvailableException.scala
+│                   │   ├── BaseEnum.scala
+│                   │   ├── AuthorizationException.scala
+│                   │   ├── AppInfo.scala
+│                   │   └── AdminCommandFailedException.scala
+│                   ├── cluster
+│                   │   ├── Replica.scala
+│                   │   ├── Partition.scala
+│                   │   ├── EndPoint.scala
+│                   │   ├── Cluster.scala
+│                   │   ├── Broker.scala
+│                   │   └── BrokerEndPoint.scala
+│                   ├── client
+│                   │   └── ClientUtils.scala
+│                   ├── api
+│                   │   ├── TopicMetadata.scala
+│                   │   ├── TopicMetadataResponse.scala
+│                   │   ├── TopicMetadataRequest.scala
+│                   │   ├── RequestOrResponse.scala
+│                   │   ├── ProducerResponse.scala
+│                   │   ├── ProducerRequest.scala
+│                   │   ├── OffsetResponse.scala
+│                   │   ├── OffsetRequest.scala
+│                   │   ├── OffsetFetchResponse.scala
+│                   │   ├── OffsetFetchRequest.scala
+│                   │   ├── OffsetCommitResponse.scala
+│                   │   ├── OffsetCommitRequest.scala
+│                   │   ├── LeaderAndIsr.scala
+│                   │   ├── GroupCoordinatorResponse.scala
+│                   │   ├── GroupCoordinatorRequest.scala
+│                   │   ├── FetchResponse.scala
+│                   │   ├── FetchRequest.scala
+│                   │   ├── ControlledShutdownResponse.scala
+│                   │   ├── ControlledShutdownRequest.scala
+│                   │   ├── ApiVersion.scala
+│                   │   └── ApiUtils.scala
+│                   └── admin
+│                       ├── ZkSecurityMigrator.scala
+│                       ├── TopicCommand.scala
+│                       ├── ReassignPartitionsCommand.scala
+│                       ├── RackAwareMode.scala
+│                       ├── PreferredReplicaLeaderElectionCommand.scala
+│                       ├── DeleteRecordsCommand.scala
+│                       ├── ConsumerGroupCommand.scala
+│                       ├── ConfigCommand.scala
+│                       ├── BrokerMetadata.scala
+│                       ├── BrokerApiVersionsCommand.scala
+│                       ├── AdminUtils.scala
+│                       ├── AdminOperationException.scala
+│                       ├── AdminClient.scala
+│                       └── AclCommand.scala
+├── CONTRIBUTING.md
+├── connect
+│   ├── transforms
+│   │   └── src
+│   │       ├── test
+│   │       │   └── java
+│   │       │       └── org
+│   │       │           └── apache
+│   │       │               └── kafka
+│   │       │                   └── connect
+│   │       │                       └── transforms
+│   │       │                           ├── ValueToKeyTest.java
+│   │       │                           ├── util
+│   │       │                           │   └── NonEmptyListValidatorTest.java
+│   │       │                           ├── TimestampRouterTest.java
+│   │       │                           ├── TimestampConverterTest.java
+│   │       │                           ├── SetSchemaMetadataTest.java
+│   │       │                           ├── ReplaceFieldTest.java
+│   │       │                           ├── RegexRouterTest.java
+│   │       │                           ├── MaskFieldTest.java
+│   │       │                           ├── InsertFieldTest.java
+│   │       │                           ├── HoistFieldTest.java
+│   │       │                           ├── FlattenTest.java
+│   │       │                           ├── ExtractFieldTest.java
+│   │       │                           └── CastTest.java
+│   │       └── main
+│   │           └── java
+│   │               └── org
+│   │                   └── apache
+│   │                       └── kafka
+│   │                           └── connect
+│   │                               └── transforms
+│   │                                   ├── ValueToKey.java
+│   │                                   ├── util
+│   │                                   │   ├── SimpleConfig.java
+│   │                                   │   ├── SchemaUtil.java
+│   │                                   │   ├── Requirements.java
+│   │                                   │   ├── RegexValidator.java
+│   │                                   │   └── NonEmptyListValidator.java
+│   │                                   ├── TimestampRouter.java
+│   │                                   ├── TimestampConverter.java
+│   │                                   ├── SetSchemaMetadata.java
+│   │                                   ├── ReplaceField.java
+│   │                                   ├── RegexRouter.java
+│   │                                   ├── MaskField.java
+│   │                                   ├── InsertField.java
+│   │                                   ├── HoistField.java
+│   │                                   ├── Flatten.java
+│   │                                   ├── ExtractField.java
+│   │                                   └── Cast.java
+│   ├── runtime
+│   │   └── src
+│   │       ├── test
+│   │       │   ├── resources
+│   │       │   │   └── log4j.properties
+│   │       │   └── java
+│   │       │       └── org
+│   │       │           └── apache
+│   │       │               └── kafka
+│   │       │                   └── connect
+│   │       │                       ├── util
+│   │       │                       │   ├── TopicAdminTest.java
+│   │       │                       │   ├── ThreadedTest.java
+│   │       │                       │   ├── TestFuture.java
+│   │       │                       │   ├── TestBackgroundThreadExceptionHandler.java
+│   │       │                       │   ├── TableTest.java
+│   │       │                       │   ├── ShutdownableThreadTest.java
+│   │       │                       │   ├── MockTime.java
+│   │       │                       │   ├── KafkaBasedLogTest.java
+│   │       │                       │   └── ByteArrayProducerRecordEquals.java
+│   │       │                       ├── storage
+│   │       │                       │   ├── OffsetStorageWriterTest.java
+│   │       │                       │   ├── MemoryStatusBackingStoreTest.java
+│   │       │                       │   ├── KafkaStatusBackingStoreTest.java
+│   │       │                       │   ├── KafkaOffsetBackingStoreTest.java
+│   │       │                       │   ├── KafkaConfigBackingStoreTest.java
+│   │       │                       │   └── FileOffsetBackingStoreTest.java
+│   │       │                       ├── runtime
+│   │       │                       │   ├── WorkerTest.java
+│   │       │                       │   ├── WorkerTaskTest.java
+│   │       │                       │   ├── WorkerSourceTaskTest.java
+│   │       │                       │   ├── WorkerSinkTaskThreadedTest.java
+│   │       │                       │   ├── WorkerSinkTaskTest.java
+│   │       │                       │   ├── WorkerConnectorTest.java
+│   │       │                       │   ├── TransformationConfigTest.java
+│   │       │                       │   ├── TestSourceConnector.java
+│   │       │                       │   ├── TestSinkConnector.java
+│   │       │                       │   ├── standalone
+│   │       │                       │   │   └── StandaloneHerderTest.java
+│   │       │                       │   ├── SourceTaskOffsetCommitterTest.java
+│   │       │                       │   ├── rest
+│   │       │                       │   │   ├── RestServerTest.java
+│   │       │                       │   │   ├── resources
+│   │       │                       │   │   │   ├── ConnectorsResourceTest.java
+│   │       │                       │   │   │   └── ConnectorPluginsResourceTest.java
+│   │       │                       │   │   └── entities
+│   │       │                       │   │       └── ConnectorTypeTest.java
+│   │       │                       │   ├── isolation
+│   │       │                       │   │   ├── PluginUtilsTest.java
+│   │       │                       │   │   └── PluginDescTest.java
+│   │       │                       │   ├── distributed
+│   │       │                       │   │   ├── WorkerCoordinatorTest.java
+│   │       │                       │   │   └── DistributedHerderTest.java
+│   │       │                       │   ├── ConnectorConfigTest.java
+│   │       │                       │   └── AbstractHerderTest.java
+│   │       │                       └── converters
+│   │       │                           └── ByteArrayConverterTest.java
+│   │       └── main
+│   │           └── java
+│   │               └── org
+│   │                   └── apache
+│   │                       └── kafka
+│   │                           └── connect
+│   │                               ├── util
+│   │                               │   ├── TopicAdmin.java
+│   │                               │   ├── Table.java
+│   │                               │   ├── SinkUtils.java
+│   │                               │   ├── ShutdownableThread.java
+│   │                               │   ├── SafeObjectInputStream.java
+│   │                               │   ├── ReflectionsUtil.java
+│   │                               │   ├── KafkaBasedLog.java
+│   │                               │   ├── FutureCallback.java
+│   │                               │   ├── ConvertingFutureCallback.java
+│   │                               │   ├── ConnectUtils.java
+│   │                               │   ├── ConnectorTaskId.java
+│   │                               │   └── Callback.java
+│   │                               ├── tools
+│   │                               │   ├── VerifiableSourceTask.java
+│   │                               │   ├── VerifiableSourceConnector.java
+│   │                               │   ├── VerifiableSinkTask.java
+│   │                               │   ├── VerifiableSinkConnector.java
+│   │                               │   ├── TransformationDoc.java
+│   │                               │   ├── SchemaSourceTask.java
+│   │                               │   ├── SchemaSourceConnector.java
+│   │                               │   ├── MockSourceTask.java
+│   │                               │   ├── MockSourceConnector.java
+│   │                               │   ├── MockSinkTask.java
+│   │                               │   ├── MockSinkConnector.java
+│   │                               │   └── MockConnector.java
+│   │                               ├── storage
+│   │                               │   ├── StatusBackingStore.java
+│   │                               │   ├── OffsetUtils.java
+│   │                               │   ├── OffsetStorageWriter.java
+│   │                               │   ├── OffsetStorageReaderImpl.java
+│   │                               │   ├── OffsetBackingStore.java
+│   │                               │   ├── MemoryStatusBackingStore.java
+│   │                               │   ├── MemoryOffsetBackingStore.java
+│   │                               │   ├── MemoryConfigBackingStore.java
+│   │                               │   ├── KafkaStatusBackingStore.java
+│   │                               │   ├── KafkaOffsetBackingStore.java
+│   │                               │   ├── KafkaConfigBackingStore.java
+│   │                               │   ├── FileOffsetBackingStore.java
+│   │                               │   └── ConfigBackingStore.java
+│   │                               ├── runtime
+│   │                               │   ├── WorkerTask.java
+│   │                               │   ├── WorkerSourceTask.java
+│   │                               │   ├── WorkerSourceTaskContext.java
+│   │                               │   ├── WorkerSinkTask.java
+│   │                               │   ├── WorkerSinkTaskContext.java
+│   │                               │   ├── Worker.java
+│   │                               │   ├── WorkerConnector.java
+│   │                               │   ├── WorkerConfig.java
+│   │                               │   ├── TransformationChain.java
+│   │                               │   ├── TaskStatus.java
+│   │                               │   ├── TaskConfig.java
+│   │                               │   ├── TargetState.java
+│   │                               │   ├── standalone
+│   │                               │   │   ├── StandaloneHerder.java
+│   │                               │   │   └── StandaloneConfig.java
+│   │                               │   ├── SourceTaskOffsetCommitter.java
+│   │                               │   ├── SourceConnectorConfig.java
+│   │                               │   ├── SinkConnectorConfig.java
+│   │                               │   ├── rest
+│   │                               │   │   ├── RestServer.java
+│   │                               │   │   ├── resources
+│   │                               │   │   │   ├── RootResource.java
+│   │                               │   │   │   ├── ConnectorsResource.java
+│   │                               │   │   │   └── ConnectorPluginsResource.java
+│   │                               │   │   ├── errors
+│   │                               │   │   │   ├── ConnectRestException.java
+│   │                               │   │   │   ├── ConnectExceptionMapper.java
+│   │                               │   │   │   └── BadRequestException.java
+│   │                               │   │   └── entities
+│   │                               │   │       ├── TaskInfo.java
+│   │                               │   │       ├── ServerInfo.java
+│   │                               │   │       ├── ErrorMessage.java
+│   │                               │   │       ├── CreateConnectorRequest.java
+│   │                               │   │       ├── ConnectorType.java
+│   │                               │   │       ├── ConnectorStateInfo.java
+│   │                               │   │       ├── ConnectorPluginInfo.java
+│   │                               │   │       ├── ConnectorInfo.java
+│   │                               │   │       ├── ConfigValueInfo.java
+│   │                               │   │       ├── ConfigKeyInfo.java
+│   │                               │   │       ├── ConfigInfos.java
+│   │                               │   │       └── ConfigInfo.java
+│   │                               │   ├── isolation
+│   │                               │   │   ├── PluginUtils.java
+│   │                               │   │   ├── PluginType.java
+│   │                               │   │   ├── Plugins.java
+│   │                               │   │   ├── PluginScanResult.java
+│   │                               │   │   ├── PluginDesc.java
+│   │                               │   │   ├── PluginClassLoader.java
+│   │                               │   │   └── DelegatingClassLoader.java
+│   │                               │   ├── Herder.java
+│   │                               │   ├── HerderConnectorContext.java
+│   │                               │   ├── distributed
+│   │                               │   │   ├── WorkerRebalanceListener.java
+│   │                               │   │   ├── WorkerGroupMember.java
+│   │                               │   │   ├── WorkerCoordinator.java
+│   │                               │   │   ├── RequestTargetException.java
+│   │                               │   │   ├── RebalanceNeededException.java
+│   │                               │   │   ├── NotLeaderException.java
+│   │                               │   │   ├── NotAssignedException.java
+│   │                               │   │   ├── DistributedHerder.java
+│   │                               │   │   ├── DistributedConfig.java
+│   │                               │   │   ├── ConnectProtocol.java
+│   │                               │   │   └── ClusterConfigState.java
+│   │                               │   ├── ConnectorStatus.java
+│   │                               │   ├── ConnectorConfig.java
+│   │                               │   ├── Connect.java
+│   │                               │   ├── AbstractStatus.java
+│   │                               │   └── AbstractHerder.java
+│   │                               ├── converters
+│   │                               │   └── ByteArrayConverter.java
+│   │                               └── cli
+│   │                                   ├── ConnectStandalone.java
+│   │                                   └── ConnectDistributed.java
+│   ├── json
+│   │   └── src
+│   │       ├── test
+│   │       │   ├── resources
+│   │       │   │   └── connect-test.properties
+│   │       │   └── java
+│   │       │       └── org
+│   │       │           └── apache
+│   │       │               └── kafka
+│   │       │                   └── connect
+│   │       │                       └── json
+│   │       │                           └── JsonConverterTest.java
+│   │       └── main
+│   │           └── java
+│   │               └── org
+│   │                   └── apache
+│   │                       └── kafka
+│   │                           └── connect
+│   │                               └── json
+│   │                                   ├── JsonSerializer.java
+│   │                                   ├── JsonSchema.java
+│   │                                   ├── JsonDeserializer.java
+│   │                                   └── JsonConverter.java
+│   ├── file
+│   │   └── src
+│   │       ├── test
+│   │       │   └── java
+│   │       │       └── org
+│   │       │           └── apache
+│   │       │               └── kafka
+│   │       │                   └── connect
+│   │       │                       └── file
+│   │       │                           ├── FileStreamSourceTaskTest.java
+│   │       │                           ├── FileStreamSourceConnectorTest.java
+│   │       │                           ├── FileStreamSinkTaskTest.java
+│   │       │                           └── FileStreamSinkConnectorTest.java
+│   │       └── main
+│   │           └── java
+│   │               └── org
+│   │                   └── apache
+│   │                       └── kafka
+│   │                           └── connect
+│   │                               └── file
+│   │                                   ├── FileStreamSourceTask.java
+│   │                                   ├── FileStreamSourceConnector.java
+│   │                                   ├── FileStreamSinkTask.java
+│   │                                   └── FileStreamSinkConnector.java
+│   └── api
+│       └── src
+│           ├── test
+│           │   └── java
+│           │       └── org
+│           │           └── apache
+│           │               └── kafka
+│           │                   └── connect
+│           │                       ├── util
+│           │                       │   └── ConnectorUtilsTest.java
+│           │                       ├── storage
+│           │                       │   └── StringConverterTest.java
+│           │                       ├── data
+│           │                       │   ├── TimeTest.java
+│           │                       │   ├── TimestampTest.java
+│           │                       │   ├── StructTest.java
+│           │                       │   ├── SchemaProjectorTest.java
+│           │                       │   ├── SchemaBuilderTest.java
+│           │                       │   ├── FieldTest.java
+│           │                       │   ├── FakeSchema.java
+│           │                       │   ├── DecimalTest.java
+│           │                       │   ├── DateTest.java
+│           │                       │   └── ConnectSchemaTest.java
+│           │                       └── connector
+│           │                           └── ConnectorReconfigurationTest.java
+│           └── main
+│               └── java
+│                   └── org
+│                       └── apache
+│                           └── kafka
+│                               └── connect
+│                                   ├── util
+│                                   │   └── ConnectorUtils.java
+│                                   ├── transforms
+│                                   │   └── Transformation.java
+│                                   ├── storage
+│                                   │   ├── StringConverter.java
+│                                   │   ├── OffsetStorageReader.java
+│                                   │   └── Converter.java
+│                                   ├── source
+│                                   │   ├── SourceTask.java
+│                                   │   ├── SourceTaskContext.java
+│                                   │   ├── SourceRecord.java
+│                                   │   └── SourceConnector.java
+│                                   ├── sink
+│                                   │   ├── SinkTask.java
+│                                   │   ├── SinkTaskContext.java
+│                                   │   ├── SinkRecord.java
+│                                   │   └── SinkConnector.java
+│                                   ├── errors
+│                                   │   ├── SchemaProjectorException.java
+│                                   │   ├── SchemaBuilderException.java
+│                                   │   ├── RetriableException.java
+│                                   │   ├── NotFoundException.java
+│                                   │   ├── IllegalWorkerStateException.java
+│                                   │   ├── DataException.java
+│                                   │   ├── ConnectException.java
+│                                   │   └── AlreadyExistsException.java
+│                                   ├── data
+│                                   │   ├── Timestamp.java
+│                                   │   ├── Time.java
+│                                   │   ├── Struct.java
+│                                   │   ├── SchemaProjector.java
+│                                   │   ├── Schema.java
+│                                   │   ├── SchemaBuilder.java
+│                                   │   ├── SchemaAndValue.java
+│                                   │   ├── Field.java
+│                                   │   ├── Decimal.java
+│                                   │   ├── Date.java
+│                                   │   └── ConnectSchema.java
+│                                   └── connector
+│                                       ├── Task.java
+│                                       ├── ConnectRecord.java
+│                                       ├── Connector.java
+│                                       └── ConnectorContext.java
+├── config
+│   ├── zookeeper.properties
+│   ├── tools-log4j.properties
+│   ├── server.properties
+│   ├── producer.properties
+│   ├── log4j.properties
+│   ├── consumer.properties
+│   ├── connect-standalone.properties
+│   ├── connect-log4j.properties
+│   ├── connect-file-source.properties
+│   ├── connect-file-sink.properties
+│   ├── connect-distributed.properties
+│   ├── connect-console-source.properties
+│   └── connect-console-sink.properties
+├── clients
+│   ├── src
+│   │   ├── test
+│   │   │   ├── resources
+│   │   │   │   ├── serializedData
+│   │   │   │   │   ├── topicPartitionSerializedfile
+│   │   │   │   │   └── offsetAndMetadataSerializedfile
+│   │   │   │   └── log4j.properties
+│   │   │   └── java
+│   │   │       └── org
+│   │   │           └── apache
+│   │   │               └── kafka
+│   │   │                   ├── test
+│   │   │                   │   ├── TestUtils.java
+│   │   │                   │   ├── TestSslUtils.java
+│   │   │                   │   ├── TestCondition.java
+│   │   │                   │   ├── MockSerializer.java
+│   │   │                   │   ├── MockSelector.java
+│   │   │                   │   ├── MockProducerInterceptor.java
+│   │   │                   │   ├── MockPartitioner.java
+│   │   │                   │   ├── MockMetricsReporter.java
+│   │   │                   │   ├── MockDeserializer.java
+│   │   │                   │   ├── MockConsumerInterceptor.java
+│   │   │                   │   ├── MockClusterResourceListener.java
+│   │   │                   │   ├── Microbenchmarks.java
+│   │   │                   │   ├── MetricsBench.java
+│   │   │                   │   ├── IntegrationTest.java
+│   │   │                   │   └── DelayedReceive.java
+│   │   │                   ├── common
+│   │   │                   │   ├── utils
+│   │   │                   │   │   ├── UtilsTest.java
+│   │   │                   │   │   ├── ShellTest.java
+│   │   │                   │   │   ├── Serializer.java
+│   │   │                   │   │   ├── MockTime.java
+│   │   │                   │   │   ├── JavaTest.java
+│   │   │                   │   │   ├── Crc32Test.java
+│   │   │                   │   │   ├── Crc32CTest.java
+│   │   │                   │   │   ├── ChecksumsTest.java
+│   │   │                   │   │   ├── ByteUtilsTest.java
+│   │   │                   │   │   ├── ByteBufferOutputStreamTest.java
+│   │   │                   │   │   └── AbstractIteratorTest.java
+│   │   │                   │   ├── SerializeCompatibilityTopicPartitionTest.java
+│   │   │                   │   ├── serialization
+│   │   │                   │   │   └── SerializationTest.java
+│   │   │                   │   ├── security
+│   │   │                   │   │   ├── TestSecurityConfig.java
+│   │   │                   │   │   ├── ssl
+│   │   │                   │   │   │   └── SslFactoryTest.java
+│   │   │                   │   │   ├── scram
+│   │   │                   │   │   │   ├── ScramMessagesTest.java
+│   │   │                   │   │   │   ├── ScramFormatterTest.java
+│   │   │                   │   │   │   └── ScramCredentialUtilsTest.java
+│   │   │                   │   │   ├── kerberos
+│   │   │                   │   │   │   └── KerberosNameTest.java
+│   │   │                   │   │   ├── JaasContextTest.java
+│   │   │                   │   │   ├── authenticator
+│   │   │                   │   │   │   ├── TestJaasConfig.java
+│   │   │                   │   │   │   ├── TestDigestLoginModule.java
+│   │   │                   │   │   │   └── SaslAuthenticatorTest.java
+│   │   │                   │   │   └── auth
+│   │   │                   │   │       └── KafkaPrincipalTest.java
+│   │   │                   │   ├── resource
+│   │   │                   │   │   └── ResourceTypeTest.java
+│   │   │                   │   ├── requests
+│   │   │                   │   │   ├── RequestResponseTest.java
+│   │   │                   │   │   ├── ProduceRequestTest.java
+│   │   │                   │   │   ├── ByteBufferChannel.java
+│   │   │                   │   │   └── ApiVersionsResponseTest.java
+│   │   │                   │   ├── record
+│   │   │                   │   │   ├── SimpleLegacyRecordTest.java
+│   │   │                   │   │   ├── MemoryRecordsTest.java
+│   │   │                   │   │   ├── MemoryRecordsBuilderTest.java
+│   │   │                   │   │   ├── LegacyRecordTest.java
+│   │   │                   │   │   ├── KafkaLZ4Test.java
+│   │   │                   │   │   ├── FileRecordsTest.java
+│   │   │                   │   │   ├── FileLogInputStreamTest.java
+│   │   │                   │   │   ├── EndTransactionMarkerTest.java
+│   │   │                   │   │   ├── DefaultRecordTest.java
+│   │   │                   │   │   ├── DefaultRecordBatchTest.java
+│   │   │                   │   │   ├── ControlRecordTypeTest.java
+│   │   │                   │   │   ├── CompressionTypeTest.java
+│   │   │                   │   │   ├── ByteBufferLogInputStreamTest.java
+│   │   │                   │   │   └── AbstractLegacyRecordBatchTest.java
+│   │   │                   │   ├── protocol
+│   │   │                   │   │   ├── types
+│   │   │                   │   │   │   └── ProtocolSerializationTest.java
+│   │   │                   │   │   ├── ErrorsTest.java
+│   │   │                   │   │   └── ApiKeysTest.java
+│   │   │                   │   ├── PartitionInfoTest.java
+│   │   │                   │   ├── network
+│   │   │                   │   │   ├── SslTransportLayerTest.java
+│   │   │                   │   │   ├── SslSelectorTest.java
+│   │   │                   │   │   ├── SelectorTest.java
+│   │   │                   │   │   ├── SaslChannelBuilderTest.java
+│   │   │                   │   │   ├── NioEchoServer.java
+│   │   │                   │   │   ├── NetworkTestUtils.java
+│   │   │                   │   │   ├── EchoServer.java
+│   │   │                   │   │   └── CertStores.java
+│   │   │                   │   ├── metrics
+│   │   │                   │   │   ├── stats
+│   │   │                   │   │   │   └── HistogramTest.java
+│   │   │                   │   │   ├── SensorTest.java
+│   │   │                   │   │   ├── SampleMetrics.java
+│   │   │                   │   │   ├── MetricsTest.java
+│   │   │                   │   │   ├── JmxReporterTest.java
+│   │   │                   │   │   └── FakeMetricsReporter.java
+│   │   │                   │   ├── KafkaFutureTest.java
+│   │   │                   │   ├── internals
+│   │   │                   │   │   ├── TopicTest.java
+│   │   │                   │   │   └── PartitionStatesTest.java
+│   │   │                   │   ├── header
+│   │   │                   │   │   └── internals
+│   │   │                   │   │       └── RecordHeadersTest.java
+│   │   │                   │   ├── config
+│   │   │                   │   │   ├── ConfigDefTest.java
+│   │   │                   │   │   └── AbstractConfigTest.java
+│   │   │                   │   ├── ClusterTest.java
+│   │   │                   │   ├── cache
+│   │   │                   │   │   └── LRUCacheTest.java
+│   │   │                   │   └── acl
+│   │   │                   │       ├── AclPermissionTypeTest.java
+│   │   │                   │       ├── AclOperationTest.java
+│   │   │                   │       └── AclBindingTest.java
+│   │   │                   └── clients
+│   │   │                       ├── producer
+│   │   │                       │   ├── RecordSendTest.java
+│   │   │                       │   ├── RecordMetadataTest.java
+│   │   │                       │   ├── ProducerRecordTest.java
+│   │   │                       │   ├── MockProducerTest.java
+│   │   │                       │   ├── KafkaProducerTest.java
+│   │   │                       │   └── internals
+│   │   │                       │       ├── TransactionManagerTest.java
+│   │   │                       │       ├── SenderTest.java
+│   │   │                       │       ├── RecordAccumulatorTest.java
+│   │   │                       │       ├── ProducerInterceptorsTest.java
+│   │   │                       │       ├── ProducerBatchTest.java
+│   │   │                       │       ├── DefaultPartitionerTest.java
+│   │   │                       │       └── BufferPoolTest.java
+│   │   │                       ├── NodeApiVersionsTest.java
+│   │   │                       ├── NetworkClientTest.java
+│   │   │                       ├── MockClient.java
+│   │   │                       ├── MetadataTest.java
+│   │   │                       ├── consumer
+│   │   │                       │   ├── StickyAssignorTest.java
+│   │   │                       │   ├── SerializeCompatibilityOffsetAndMetadataTest.java
+│   │   │                       │   ├── RoundRobinAssignorTest.java
+│   │   │                       │   ├── RangeAssignorTest.java
+│   │   │                       │   ├── MockConsumerTest.java
+│   │   │                       │   ├── KafkaConsumerTest.java
+│   │   │                       │   ├── internals
+│   │   │                       │   │   ├── SubscriptionStateTest.java
+│   │   │                       │   │   ├── RequestFutureTest.java
+│   │   │                       │   │   ├── MockPartitionAssignor.java
+│   │   │                       │   │   ├── HeartbeatTest.java
+│   │   │                       │   │   ├── FetcherTest.java
+│   │   │                       │   │   ├── ConsumerProtocolTest.java
+│   │   │                       │   │   ├── ConsumerNetworkClientTest.java
+│   │   │                       │   │   ├── ConsumerInterceptorsTest.java
+│   │   │                       │   │   ├── ConsumerCoordinatorTest.java
+│   │   │                       │   │   └── AbstractCoordinatorTest.java
+│   │   │                       │   ├── ConsumerRecordTest.java
+│   │   │                       │   ├── ConsumerRecordsTest.java
+│   │   │                       │   └── ConsumerConfigTest.java
+│   │   │                       ├── CommonClientConfigsTest.java
+│   │   │                       ├── ClientUtilsTest.java
+│   │   │                       ├── ApiVersionsTest.java
+│   │   │                       └── admin
+│   │   │                           ├── MockKafkaAdminClientEnv.java
+│   │   │                           └── KafkaAdminClientTest.java
+│   │   └── main
+│   │       └── java
+│   │           └── org
+│   │               └── apache
+│   │                   └── kafka
+│   │                       ├── server
+│   │                       │   └── policy
+│   │                       │       ├── CreateTopicPolicy.java
+│   │                       │       └── AlterConfigPolicy.java
+│   │                       ├── common
+│   │                       │   ├── utils
+│   │                       │   │   ├── Utils.java
+│   │                       │   │   ├── Time.java
+│   │                       │   │   ├── SystemTime.java
+│   │                       │   │   ├── Shell.java
+│   │                       │   │   ├── PureJavaCrc32C.java
+│   │                       │   │   ├── OperatingSystem.java
+│   │                       │   │   ├── KafkaThread.java
+│   │                       │   │   ├── Java.java
+│   │                       │   │   ├── Exit.java
+│   │                       │   │   ├── Crc32.java
+│   │                       │   │   ├── Crc32C.java
+│   │                       │   │   ├── CopyOnWriteMap.java
+│   │                       │   │   ├── CollectionUtils.java
+│   │                       │   │   ├── CloseableIterator.java
+│   │                       │   │   ├── CircularIterator.java
+│   │                       │   │   ├── Checksums.java
+│   │                       │   │   ├── ByteUtils.java
+│   │                       │   │   ├── Bytes.java
+│   │                       │   │   ├── ByteBufferOutputStream.java
+│   │                       │   │   ├── ByteBufferInputStream.java
+│   │                       │   │   ├── AppInfoParser.java
+│   │                       │   │   └── AbstractIterator.java
+│   │                       │   ├── TopicPartition.java
+│   │                       │   ├── TopicPartitionInfo.java
+│   │                       │   ├── serialization
+│   │                       │   │   ├── StringSerializer.java
+│   │                       │   │   ├── StringDeserializer.java
+│   │                       │   │   ├── ShortSerializer.java
+│   │                       │   │   ├── ShortDeserializer.java
+│   │                       │   │   ├── Serializer.java
+│   │                       │   │   ├── Serdes.java
+│   │                       │   │   ├── Serde.java
+│   │                       │   │   ├── LongSerializer.java
+│   │                       │   │   ├── LongDeserializer.java
+│   │                       │   │   ├── IntegerSerializer.java
+│   │                       │   │   ├── IntegerDeserializer.java
+│   │                       │   │   ├── FloatSerializer.java
+│   │                       │   │   ├── FloatDeserializer.java
+│   │                       │   │   ├── ExtendedSerializer.java
+│   │                       │   │   ├── ExtendedDeserializer.java
+│   │                       │   │   ├── DoubleSerializer.java
+│   │                       │   │   ├── DoubleDeserializer.java
+│   │                       │   │   ├── Deserializer.java
+│   │                       │   │   ├── BytesSerializer.java
+│   │                       │   │   ├── BytesDeserializer.java
+│   │                       │   │   ├── ByteBufferSerializer.java
+│   │                       │   │   ├── ByteBufferDeserializer.java
+│   │                       │   │   ├── ByteArraySerializer.java
+│   │                       │   │   └── ByteArrayDeserializer.java
+│   │                       │   ├── security
+│   │                       │   │   ├── ssl
+│   │                       │   │   │   └── SslFactory.java
+│   │                       │   │   ├── scram
+│   │                       │   │   │   ├── ScramServerCallbackHandler.java
+│   │                       │   │   │   ├── ScramSaslServerProvider.java
+│   │                       │   │   │   ├── ScramSaslServer.java
+│   │                       │   │   │   ├── ScramSaslClientProvider.java
+│   │                       │   │   │   ├── ScramSaslClient.java
+│   │                       │   │   │   ├── ScramMessages.java
+│   │                       │   │   │   ├── ScramMechanism.java
+│   │                       │   │   │   ├── ScramLoginModule.java
+│   │                       │   │   │   ├── ScramFormatter.java
+│   │                       │   │   │   ├── ScramCredentialUtils.java
+│   │                       │   │   │   ├── ScramCredential.java
+│   │                       │   │   │   └── ScramCredentialCallback.java
+│   │                       │   │   ├── plain
+│   │                       │   │   │   ├── PlainSaslServerProvider.java
+│   │                       │   │   │   ├── PlainSaslServer.java
+│   │                       │   │   │   └── PlainLoginModule.java
+│   │                       │   │   ├── kerberos
+│   │                       │   │   │   ├── NoMatchingRule.java
+│   │                       │   │   │   ├── KerberosShortNamer.java
+│   │                       │   │   │   ├── KerberosRule.java
+│   │                       │   │   │   ├── KerberosName.java
+│   │                       │   │   │   ├── KerberosLogin.java
+│   │                       │   │   │   └── BadFormatString.java
+│   │                       │   │   ├── JaasUtils.java
+│   │                       │   │   ├── JaasContext.java
+│   │                       │   │   ├── JaasConfig.java
+│   │                       │   │   ├── authenticator
+│   │                       │   │   │   ├── SaslServerCallbackHandler.java
+│   │                       │   │   │   ├── SaslServerAuthenticator.java
+│   │                       │   │   │   ├── SaslClientCallbackHandler.java
+│   │                       │   │   │   ├── SaslClientAuthenticator.java
+│   │                       │   │   │   ├── LoginManager.java
+│   │                       │   │   │   ├── DefaultLogin.java
+│   │                       │   │   │   ├── CredentialCache.java
+│   │                       │   │   │   └── AbstractLogin.java
+│   │                       │   │   └── auth
+│   │                       │   │       ├── PrincipalBuilder.java
+│   │                       │   │       ├── Login.java
+│   │                       │   │       ├── KafkaPrincipal.java
+│   │                       │   │       ├── DefaultPrincipalBuilder.java
+│   │                       │   │       └── AuthCallbackHandler.java
+│   │                       │   ├── resource
+│   │                       │   │   ├── ResourceType.java
+│   │                       │   │   ├── Resource.java
+│   │                       │   │   └── ResourceFilter.java
+│   │                       │   ├── requests
+│   │                       │   │   ├── WriteTxnMarkersResponse.java
+│   │                       │   │   ├── WriteTxnMarkersRequest.java
+│   │                       │   │   ├── UpdateMetadataResponse.java
+│   │                       │   │   ├── UpdateMetadataRequest.java
+│   │                       │   │   ├── TxnOffsetCommitResponse.java
+│   │                       │   │   ├── TxnOffsetCommitRequest.java
+│   │                       │   │   ├── TransactionResult.java
+│   │                       │   │   ├── SyncGroupResponse.java
+│   │                       │   │   ├── SyncGroupRequest.java
+│   │                       │   │   ├── StopReplicaResponse.java
+│   │                       │   │   ├── StopReplicaRequest.java
+│   │                       │   │   ├── SaslHandshakeResponse.java
+│   │                       │   │   ├── SaslHandshakeRequest.java
+│   │                       │   │   ├── ResponseHeader.java
+│   │                       │   │   ├── ResourceType.java
+│   │                       │   │   ├── Resource.java
+│   │                       │   │   ├── RequestUtils.java
+│   │                       │   │   ├── RequestHeader.java
+│   │                       │   │   ├── RequestAndSize.java
+│   │                       │   │   ├── RecordsSend.java
+│   │                       │   │   ├── ProduceResponse.java
+│   │                       │   │   ├── ProduceRequest.java
+│   │                       │   │   ├── PartitionState.java
+│   │                       │   │   ├── OffsetsForLeaderEpochResponse.java
+│   │                       │   │   ├── OffsetsForLeaderEpochRequest.java
+│   │                       │   │   ├── OffsetFetchResponse.java
+│   │                       │   │   ├── OffsetFetchRequest.java
+│   │                       │   │   ├── OffsetCommitResponse.java
+│   │                       │   │   ├── OffsetCommitRequest.java
+│   │                       │   │   ├── MetadataResponse.java
+│   │                       │   │   ├── MetadataRequest.java
+│   │                       │   │   ├── ListOffsetResponse.java
+│   │                       │   │   ├── ListOffsetRequest.java
+│   │                       │   │   ├── ListGroupsResponse.java
+│   │                       │   │   ├── ListGroupsRequest.java
+│   │                       │   │   ├── LeaveGroupResponse.java
+│   │                       │   │   ├── LeaveGroupRequest.java
+│   │                       │   │   ├── LeaderAndIsrResponse.java
+│   │                       │   │   ├── LeaderAndIsrRequest.java
+│   │                       │   │   ├── JoinGroupResponse.java
+│   │                       │   │   ├── JoinGroupRequest.java
+│   │                       │   │   ├── IsolationLevel.java
+│   │                       │   │   ├── InitProducerIdResponse.java
+│   │                       │   │   ├── InitProducerIdRequest.java
+│   │                       │   │   ├── HeartbeatResponse.java
+│   │                       │   │   ├── HeartbeatRequest.java
+│   │                       │   │   ├── FindCoordinatorResponse.java
+│   │                       │   │   ├── FindCoordinatorRequest.java
+│   │                       │   │   ├── FetchResponse.java
+│   │                       │   │   ├── FetchRequest.java
+│   │                       │   │   ├── EpochEndOffset.java
+│   │                       │   │   ├── EndTxnResponse.java
+│   │                       │   │   ├── EndTxnRequest.java
+│   │                       │   │   ├── DescribeGroupsResponse.java
+│   │                       │   │   ├── DescribeGroupsRequest.java
+│   │                       │   │   ├── DescribeConfigsResponse.java
+│   │                       │   │   ├── DescribeConfigsRequest.java
+│   │                       │   │   ├── DescribeAclsResponse.java
+│   │                       │   │   ├── DescribeAclsRequest.java
+│   │                       │   │   ├── DeleteTopicsResponse.java
+│   │                       │   │   ├── DeleteTopicsRequest.java
+│   │                       │   │   ├── DeleteRecordsResponse.java
+│   │                       │   │   ├── DeleteRecordsRequest.java
+│   │                       │   │   ├── DeleteAclsResponse.java
+│   │                       │   │   ├── DeleteAclsRequest.java
+│   │                       │   │   ├── CreateTopicsResponse.java
+│   │                       │   │   ├── CreateTopicsRequest.java
+│   │                       │   │   ├── CreateAclsResponse.java
+│   │                       │   │   ├── CreateAclsRequest.java
+│   │                       │   │   ├── ControlledShutdownResponse.java
+│   │                       │   │   ├── ControlledShutdownRequest.java
+│   │                       │   │   ├── ApiVersionsResponse.java
+│   │                       │   │   ├── ApiVersionsRequest.java
+│   │                       │   │   ├── ApiError.java
+│   │                       │   │   ├── AlterConfigsResponse.java
+│   │                       │   │   ├── AlterConfigsRequest.java
+│   │                       │   │   ├── AddPartitionsToTxnResponse.java
+│   │                       │   │   ├── AddPartitionsToTxnRequest.java
+│   │                       │   │   ├── AddOffsetsToTxnResponse.java
+│   │                       │   │   ├── AddOffsetsToTxnRequest.java
+│   │                       │   │   ├── AbstractResponse.java
+│   │                       │   │   ├── AbstractRequestResponse.java
+│   │                       │   │   └── AbstractRequest.java
+│   │                       │   ├── record
+│   │                       │   │   ├── TimestampType.java
+│   │                       │   │   ├── SimpleRecord.java
+│   │                       │   │   ├── Records.java
+│   │                       │   │   ├── Record.java
+│   │                       │   │   ├── RecordBatch.java
+│   │                       │   │   ├── RecordBatchIterator.java
+│   │                       │   │   ├── MutableRecordBatch.java
+│   │                       │   │   ├── MemoryRecords.java
+│   │                       │   │   ├── MemoryRecordsBuilder.java
+│   │                       │   │   ├── LogInputStream.java
+│   │                       │   │   ├── LegacyRecord.java
+│   │                       │   │   ├── KafkaLZ4BlockOutputStream.java
+│   │                       │   │   ├── KafkaLZ4BlockInputStream.java
+│   │                       │   │   ├── InvalidRecordException.java
+│   │                       │   │   ├── FileRecords.java
+│   │                       │   │   ├── FileLogInputStream.java
+│   │                       │   │   ├── EndTransactionMarker.java
+│   │                       │   │   ├── DefaultRecord.java
+│   │                       │   │   ├── DefaultRecordBatch.java
+│   │                       │   │   ├── ControlRecordType.java
+│   │                       │   │   ├── CompressionType.java
+│   │                       │   │   ├── CompressionRatioEstimator.java
+│   │                       │   │   ├── ByteBufferLogInputStream.java
+│   │                       │   │   ├── BufferSupplier.java
+│   │                       │   │   ├── AbstractRecords.java
+│   │                       │   │   ├── AbstractRecordBatch.java
+│   │                       │   │   └── AbstractLegacyRecordBatch.java
+│   │                       │   ├── protocol
+│   │                       │   │   ├── types
+│   │                       │   │   │   ├── Type.java
+│   │                       │   │   │   ├── Struct.java
+│   │                       │   │   │   ├── Schema.java
+│   │                       │   │   │   ├── SchemaException.java
+│   │                       │   │   │   ├── Field.java
+│   │                       │   │   │   └── ArrayOf.java
+│   │                       │   │   ├── SecurityProtocol.java
+│   │                       │   │   ├── Protocol.java
+│   │                       │   │   ├── Errors.java
+│   │                       │   │   └── ApiKeys.java
+│   │                       │   ├── PartitionInfo.java
+│   │                       │   ├── Node.java
+│   │                       │   ├── network
+│   │                       │   │   ├── TransportLayers.java
+│   │                       │   │   ├── TransportLayer.java
+│   │                       │   │   ├── SslTransportLayer.java
+│   │                       │   │   ├── SslChannelBuilder.java
+│   │                       │   │   ├── Send.java
+│   │                       │   │   ├── Selector.java
+│   │                       │   │   ├── Selectable.java
+│   │                       │   │   ├── SaslChannelBuilder.java
+│   │                       │   │   ├── Receive.java
+│   │                       │   │   ├── PlaintextTransportLayer.java
+│   │                       │   │   ├── PlaintextChannelBuilder.java
+│   │                       │   │   ├── NetworkSend.java
+│   │                       │   │   ├── NetworkReceive.java
+│   │                       │   │   ├── MultiSend.java
+│   │                       │   │   ├── Mode.java
+│   │                       │   │   ├── ListenerName.java
+│   │                       │   │   ├── KafkaChannel.java
+│   │                       │   │   ├── InvalidReceiveException.java
+│   │                       │   │   ├── DefaultAuthenticator.java
+│   │                       │   │   ├── ChannelState.java
+│   │                       │   │   ├── ChannelBuilders.java
+│   │                       │   │   ├── ChannelBuilder.java
+│   │                       │   │   ├── ByteBufferSend.java
+│   │                       │   │   └── Authenticator.java
+│   │                       │   ├── metrics
+│   │                       │   │   ├── stats
+│   │                       │   │   │   ├── Value.java
+│   │                       │   │   │   ├── Total.java
+│   │                       │   │   │   ├── Sum.java
+│   │                       │   │   │   ├── SimpleRate.java
+│   │                       │   │   │   ├── SampledStat.java
+│   │                       │   │   │   ├── Rate.java
+│   │                       │   │   │   ├── Percentiles.java
+│   │                       │   │   │   ├── Percentile.java
+│   │                       │   │   │   ├── Min.java
+│   │                       │   │   │   ├── Max.java
+│   │                       │   │   │   ├── Histogram.java
+│   │                       │   │   │   ├── Count.java
+│   │                       │   │   │   └── Avg.java
+│   │                       │   │   ├── Stat.java
+│   │                       │   │   ├── Sensor.java
+│   │                       │   │   ├── QuotaViolationException.java
+│   │                       │   │   ├── Quota.java
+│   │                       │   │   ├── MetricsReporter.java
+│   │                       │   │   ├── Metrics.java
+│   │                       │   │   ├── MetricConfig.java
+│   │                       │   │   ├── MeasurableStat.java
+│   │                       │   │   ├── Measurable.java
+│   │                       │   │   ├── KafkaMetric.java
+│   │                       │   │   ├── JmxReporter.java
+│   │                       │   │   └── CompoundStat.java
+│   │                       │   ├── MetricNameTemplate.java
+│   │                       │   ├── MetricName.java
+│   │                       │   ├── Metric.java
+│   │                       │   ├── KafkaFuture.java
+│   │                       │   ├── KafkaException.java
+│   │                       │   ├── internals
+│   │                       │   │   ├── Topic.java
+│   │                       │   │   ├── PartitionStates.java
+│   │                       │   │   ├── KafkaFutureImpl.java
+│   │                       │   │   ├── FatalExitError.java
+│   │                       │   │   └── ClusterResourceListeners.java
+│   │                       │   ├── header
+│   │                       │   │   ├── internals
+│   │                       │   │   │   ├── RecordHeaders.java
+│   │                       │   │   │   └── RecordHeader.java
+│   │                       │   │   ├── Headers.java
+│   │                       │   │   └── Header.java
+│   │                       │   ├── errors
+│   │                       │   │   ├── WakeupException.java
+│   │                       │   │   ├── UnsupportedVersionException.java
+│   │                       │   │   ├── UnsupportedSaslMechanismException.java
+│   │                       │   │   ├── UnsupportedForMessageFormatException.java
+│   │                       │   │   ├── UnknownTopicOrPartitionException.java
+│   │                       │   │   ├── UnknownServerException.java
+│   │                       │   │   ├── UnknownMemberIdException.java
+│   │                       │   │   ├── TransactionCoordinatorFencedException.java
+│   │                       │   │   ├── TransactionalIdAuthorizationException.java
+│   │                       │   │   ├── TopicExistsException.java
+│   │                       │   │   ├── TopicAuthorizationException.java
+│   │                       │   │   ├── TimeoutException.java
+│   │                       │   │   ├── SerializationException.java
+│   │                       │   │   ├── SecurityDisabledException.java
+│   │                       │   │   ├── RetriableException.java
+│   │                       │   │   ├── ReplicaNotAvailableException.java
+│   │                       │   │   ├── RecordTooLargeException.java
+│   │                       │   │   ├── RecordBatchTooLargeException.java
+│   │                       │   │   ├── RebalanceInProgressException.java
+│   │                       │   │   ├── ProducerFencedException.java
+│   │                       │   │   ├── PolicyViolationException.java
+│   │                       │   │   ├── OutOfOrderSequenceException.java
+│   │                       │   │   ├── OperationNotAttemptedException.java
+│   │                       │   │   ├── OffsetOutOfRangeException.java
+│   │                       │   │   ├── OffsetMetadataTooLarge.java
+│   │                       │   │   ├── NotLeaderForPartitionException.java
+│   │                       │   │   ├── NotEnoughReplicasException.java
+│   │                       │   │   ├── NotEnoughReplicasAfterAppendException.java
+│   │                       │   │   ├── NotCoordinatorForGroupException.java
+│   │                       │   │   ├── NotCoordinatorException.java
+│   │                       │   │   ├── NotControllerException.java
+│   │                       │   │   ├── NetworkException.java
+│   │                       │   │   ├── LeaderNotAvailableException.java
+│   │                       │   │   ├── KafkaStorageException.java
+│   │                       │   │   ├── InvalidTxnTimeoutException.java
+│   │                       │   │   ├── InvalidTxnStateException.java
+│   │                       │   │   ├── InvalidTopicException.java
+│   │                       │   │   ├── InvalidTimestampException.java
+│   │                       │   │   ├── InvalidSessionTimeoutException.java
+│   │                       │   │   ├── InvalidRequiredAcksException.java
+│   │                       │   │   ├── InvalidRequestException.java
+│   │                       │   │   ├── InvalidReplicationFactorException.java
+│   │                       │   │   ├── InvalidReplicaAssignmentException.java
+│   │                       │   │   ├── InvalidPidMappingException.java
+│   │                       │   │   ├── InvalidPartitionsException.java
+│   │                       │   │   ├── InvalidOffsetException.java
+│   │                       │   │   ├── InvalidMetadataException.java
+│   │                       │   │   ├── InvalidGroupIdException.java
+│   │                       │   │   ├── InvalidFetchSizeException.java
+│   │                       │   │   ├── InvalidConfigurationException.java
+│   │                       │   │   ├── InvalidCommitOffsetSizeException.java
+│   │                       │   │   ├── InterruptException.java
+│   │                       │   │   ├── InconsistentGroupProtocolException.java
+│   │                       │   │   ├── IllegalSaslStateException.java
+│   │                       │   │   ├── IllegalGenerationException.java
+│   │                       │   │   ├── GroupLoadInProgressException.java
+│   │                       │   │   ├── GroupCoordinatorNotAvailableException.java
+│   │                       │   │   ├── GroupAuthorizationException.java
+│   │                       │   │   ├── DuplicateSequenceNumberException.java
+│   │                       │   │   ├── DisconnectException.java
+│   │                       │   │   ├── CorruptRecordException.java
+│   │                       │   │   ├── CoordinatorNotAvailableException.java
+│   │                       │   │   ├── CoordinatorLoadInProgressException.java
+│   │                       │   │   ├── ControllerMovedException.java
+│   │                       │   │   ├── ConcurrentTransactionsException.java
+│   │                       │   │   ├── ClusterAuthorizationException.java
+│   │                       │   │   ├── BrokerNotAvailableException.java
+│   │                       │   │   ├── AuthorizationException.java
+│   │                       │   │   ├── AuthenticationException.java
+│   │                       │   │   └── ApiException.java
+│   │                       │   ├── Configurable.java
+│   │                       │   ├── config
+│   │                       │   │   ├── types
+│   │                       │   │   │   └── Password.java
+│   │                       │   │   ├── TopicConfig.java
+│   │                       │   │   ├── SslConfigs.java
+│   │                       │   │   ├── SaslConfigs.java
+│   │                       │   │   ├── ConfigValue.java
+│   │                       │   │   ├── ConfigResource.java
+│   │                       │   │   ├── Config.java
+│   │                       │   │   ├── ConfigException.java
+│   │                       │   │   ├── ConfigDef.java
+│   │                       │   │   └── AbstractConfig.java
+│   │                       │   ├── ClusterResourceListener.java
+│   │                       │   ├── ClusterResource.java
+│   │                       │   ├── Cluster.java
+│   │                       │   ├── cache
+│   │                       │   │   ├── SynchronizedCache.java
+│   │                       │   │   ├── LRUCache.java
+│   │                       │   │   └── Cache.java
+│   │                       │   ├── annotation
+│   │                       │   │   └── InterfaceStability.java
+│   │                       │   └── acl
+│   │                       │       ├── AclPermissionType.java
+│   │                       │       ├── AclOperation.java
+│   │                       │       ├── AclBinding.java
+│   │                       │       ├── AclBindingFilter.java
+│   │                       │       ├── AccessControlEntry.java
+│   │                       │       ├── AccessControlEntryFilter.java
+│   │                       │       └── AccessControlEntryData.java
+│   │                       └── clients
+│   │                           ├── RequestCompletionHandler.java
+│   │                           ├── producer
+│   │                           │   ├── RecordMetadata.java
+│   │                           │   ├── ProducerRecord.java
+│   │                           │   ├── Producer.java
+│   │                           │   ├── ProducerInterceptor.java
+│   │                           │   ├── ProducerConfig.java
+│   │                           │   ├── Partitioner.java
+│   │                           │   ├── MockProducer.java
+│   │                           │   ├── KafkaProducer.java
+│   │                           │   ├── internals
+│   │                           │   │   ├── TransactionManager.java
+│   │                           │   │   ├── TransactionalRequestResult.java
+│   │                           │   │   ├── Sender.java
+│   │                           │   │   ├── RecordAccumulator.java
+│   │                           │   │   ├── ProducerInterceptors.java
+│   │                           │   │   ├── ProducerIdAndEpoch.java
+│   │                           │   │   ├── ProduceRequestResult.java
+│   │                           │   │   ├── ProducerBatch.java
+│   │                           │   │   ├── IncompleteBatches.java
+│   │                           │   │   ├── FutureRecordMetadata.java
+│   │                           │   │   ├── ErrorLoggingCallback.java
+│   │                           │   │   ├── DefaultPartitioner.java
+│   │                           │   │   └── BufferPool.java
+│   │                           │   ├── Callback.java
+│   │                           │   └── BufferExhaustedException.java
+│   │                           ├── NodeApiVersions.java
+│   │                           ├── NetworkClientUtils.java
+│   │                           ├── NetworkClient.java
+│   │                           ├── MetadataUpdater.java
+│   │                           ├── Metadata.java
+│   │                           ├── ManualMetadataUpdater.java
+│   │                           ├── KafkaClient.java
+│   │                           ├── InFlightRequests.java
+│   │                           ├── consumer
+│   │                           │   ├── StickyAssignor.java
+│   │                           │   ├── RoundRobinAssignor.java
+│   │                           │   ├── RetriableCommitFailedException.java
+│   │                           │   ├── RangeAssignor.java
+│   │                           │   ├── OffsetResetStrategy.java
+│   │                           │   ├── OffsetOutOfRangeException.java
+│   │                           │   ├── OffsetCommitCallback.java
+│   │                           │   ├── OffsetAndTimestamp.java
+│   │                           │   ├── OffsetAndMetadata.java
+│   │                           │   ├── NoOffsetForPartitionException.java
+│   │                           │   ├── MockConsumer.java
+│   │                           │   ├── KafkaConsumer.java
+│   │                           │   ├── InvalidOffsetException.java
+│   │                           │   ├── internals
+│   │                           │   │   ├── SubscriptionState.java
+│   │                           │   │   ├── StaleMetadataException.java
+│   │                           │   │   ├── RequestFutureListener.java
+│   │                           │   │   ├── RequestFuture.java
+│   │                           │   │   ├── RequestFutureAdapter.java
+│   │                           │   │   ├── PartitionAssignor.java
+│   │                           │   │   ├── NoOpConsumerRebalanceListener.java
+│   │                           │   │   ├── NoAvailableBrokersException.java
+│   │                           │   │   ├── Heartbeat.java
+│   │                           │   │   ├── FetcherMetricsRegistry.java
+│   │                           │   │   ├── Fetcher.java
+│   │                           │   │   ├── ConsumerProtocol.java
+│   │                           │   │   ├── ConsumerNetworkClient.java
+│   │                           │   │   ├── ConsumerMetrics.java
+│   │                           │   │   ├── ConsumerInterceptors.java
+│   │                           │   │   ├── ConsumerCoordinator.java
+│   │                           │   │   ├── AbstractPartitionAssignor.java
+│   │                           │   │   └── AbstractCoordinator.java
+│   │                           │   ├── ConsumerRecords.java
+│   │                           │   ├── ConsumerRecord.java
+│   │                           │   ├── ConsumerRebalanceListener.java
+│   │                           │   ├── Consumer.java
+│   │                           │   ├── ConsumerInterceptor.java
+│   │                           │   ├── ConsumerConfig.java
+│   │                           │   └── CommitFailedException.java
+│   │                           ├── ConnectionState.java
+│   │                           ├── CommonClientConfigs.java
+│   │                           ├── ClusterConnectionStates.java
+│   │                           ├── ClientUtils.java
+│   │                           ├── ClientResponse.java
+│   │                           ├── ClientRequest.java
+│   │                           ├── ApiVersions.java
+│   │                           └── admin
+│   │                               ├── TopicListing.java
+│   │                               ├── TopicDescription.java
+│   │                               ├── NewTopic.java
+│   │                               ├── ListTopicsResult.java
+│   │                               ├── ListTopicsOptions.java
+│   │                               ├── KafkaAdminClient.java
+│   │                               ├── DescribeTopicsResult.java
+│   │                               ├── DescribeTopicsOptions.java
+│   │                               ├── DescribeConfigsResult.java
+│   │                               ├── DescribeConfigsOptions.java
+│   │                               ├── DescribeClusterResult.java
+│   │                               ├── DescribeClusterOptions.java
+│   │                               ├── DescribeAclsResult.java
+│   │                               ├── DescribeAclsOptions.java
+│   │                               ├── DeleteTopicsResult.java
+│   │                               ├── DeleteTopicsOptions.java
+│   │                               ├── DeleteAclsResult.java
+│   │                               ├── DeleteAclsOptions.java
+│   │                               ├── CreateTopicsResult.java
+│   │                               ├── CreateTopicsOptions.java
+│   │                               ├── CreateAclsResult.java
+│   │                               ├── CreateAclsOptions.java
+│   │                               ├── Config.java
+│   │                               ├── ConfigEntry.java
+│   │                               ├── AlterConfigsResult.java
+│   │                               ├── AlterConfigsOptions.java
+│   │                               ├── AdminClient.java
+│   │                               └── AdminClientConfig.java
+│   └── out
+│       └── test
+│           └── resources
+│               ├── serializedData
+│               │   ├── topicPartitionSerializedfile
+│               │   └── offsetAndMetadataSerializedfile
+│               └── log4j.properties
+├── checkstyle
+│   ├── suppressions.xml
+│   ├── java.header
+│   ├── import-control.xml
+│   ├── import-control-core.xml
+│   └── checkstyle.xml
+├── build.gradle
+└── bin
+    ├── zookeeper-shell.sh
+    ├── zookeeper-server-stop.sh
+    ├── zookeeper-server-start.sh
+    ├── zookeeper-security-migration.sh
+    ├── windows
+    │   ├── zookeeper-shell.bat
+    │   ├── zookeeper-server-stop.bat
+    │   ├── zookeeper-server-start.bat
+    │   ├── kafka-topics.bat
+    │   ├── kafka-simple-consumer-shell.bat
+    │   ├── kafka-server-stop.bat
+    │   ├── kafka-server-start.bat
+    │   ├── kafka-run-class.bat
+    │   ├── kafka-replica-verification.bat
+    │   ├── kafka-replay-log-producer.bat
+    │   ├── kafka-reassign-partitions.bat
+    │   ├── kafka-producer-perf-test.bat
+    │   ├── kafka-preferred-replica-election.bat
+    │   ├── kafka-mirror-maker.bat
+    │   ├── kafka-consumer-perf-test.bat
+    │   ├── kafka-consumer-offset-checker.bat
+    │   ├── kafka-consumer-groups.bat
+    │   ├── kafka-console-producer.bat
+    │   ├── kafka-console-consumer.bat
+    │   ├── kafka-configs.bat
+    │   ├── kafka-broker-api-versions.bat
+    │   ├── kafka-acls.bat
+    │   ├── connect-standalone.bat
+    │   └── connect-distributed.bat
+    ├── kafka-verifiable-producer.sh
+    ├── kafka-verifiable-consumer.sh
+    ├── kafka-topics.sh
+    ├── kafka-streams-application-reset.sh
+    ├── kafka-simple-consumer-shell.sh
+    ├── kafka-server-stop.sh
+    ├── kafka-server-start.sh
+    ├── kafka-run-class.sh
+    ├── kafka-replica-verification.sh
+    ├── kafka-replay-log-producer.sh
+    ├── kafka-reassign-partitions.sh
+    ├── kafka-producer-perf-test.sh
+    ├── kafka-preferred-replica-election.sh
+    ├── kafka-mirror-maker.sh
+    ├── kafka-delete-records.sh
+    ├── kafka-consumer-perf-test.sh
+    ├── kafka-consumer-offset-checker.sh
+    ├── kafka-consumer-groups.sh
+    ├── kafka-console-producer.sh
+    ├── kafka-console-consumer.sh
+    ├── kafka-configs.sh
+    ├── kafka-broker-api-versions.sh
+    ├── kafka-acls.sh
+    ├── connect-standalone.sh
+    └── connect-distributed.sh
+
+412 directories, 2165 files
